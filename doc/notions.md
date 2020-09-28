@@ -8,4 +8,5 @@
 
 - [Learn NASM Assembly](https://www.tutorialspoint.com/assembly_programming/index.htm)
 - [Memory Layout of C Programs](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
+- [Gestion de la mémoire](https://beta.hackndo.com/memory-allocation/)
 - [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)

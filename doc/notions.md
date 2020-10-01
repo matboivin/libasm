@@ -9,6 +9,9 @@
 - [Makefile for building ASM/C project](https://codereview.stackexchange.com/questions/156479/makefile-for-building-asm-c-project)
 - [Assembleur - Notions de base](https://beta.hackndo.com/assembly-basics/)
 - [Assembly Language Convention Guide](http://cs.brown.edu/courses/cs031/content/docs/asmguide.pdf)
+- [What are the calling conventions for UNIX & Linux system calls (and user-space functions) on i386 and x86-64](https://stackoverflow.com/questions/2535989/what-are-the-calling-conventions-for-unix-linux-system-calls-and-user-space-f)
+- [X86 Assembly/X86 Architecture](https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture)
+- [x86 Instruction Set Reference](https://c9x.me/x86/)
 
 NASM
 

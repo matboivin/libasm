@@ -8,6 +8,8 @@
 
 - [Learn NASM Assembly](https://www.tutorialspoint.com/assembly_programming/index.htm)
 - [NASM Tutorial](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
+- [NASM - The Netwide Assembler](https://www.nasm.us/doc/nasmdoc2.html)
+- [Makefile for building ASM/C project](https://codereview.stackexchange.com/questions/156479/makefile-for-building-asm-c-project)
 - [Memory Layout of C Programs](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
 - [Assembleur - Notions de base](https://beta.hackndo.com/assembly-basics/)
 - [Gestion de la mémoire](https://beta.hackndo.com/memory-allocation/)

@@ -27,7 +27,7 @@ Source : [NASM - The Netwide Assembler](https://www.nasm.us/doc/nasmdoc3.html#se
 
 Example formatter: [nasmfmt](https://github.com/yamnikov-oleg/nasmfmt)
 
-## MacOs
+## MacOs differences
 
 - The object file format is `macho64`, not `elf64`.
 - The system call numbers are totally different.

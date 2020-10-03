@@ -6,10 +6,29 @@ RM			=	rm -rf
 .SUFFIXE:
 .SUFFIXES: .s .c .o .h
 
+# ********************************** PLATFORM ******************************** #
+
+OS_NAME = $(shell uname -s)
+
+ifeq ($(OS_NAME), Linux)
+	OS = Linux
+endif
+
+ifeq ($(OS_NAME), Darwin)
+	OS = MacOS
+endif
+
 # ******************************** CC AND FLAGS ****************************** #
 
 ASM			=	nasm
-ASFLAGS		=	-f elf64
+
+ifeq ($(OS), Linux)
+	ASFLAGS = -f elf64
+endif
+
+ifeq ($(OS), MacOS)
+	ASFLAGS = -f macho64
+endif
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
@@ -19,8 +38,15 @@ LFLAGS		=	-L -lasm
 # ******************************** DIR AND PATHS ***************************** #
 
 TEST_PATH	=	$(shell find tests -type d)
-SRC_PATH	=	$(shell find src -type d)
 OBJ_PATH	=	obj
+
+ifeq ($(OS), Linux)
+	SRC_PATH = $(shell find src/linux -type d)
+endif
+
+ifeq ($(OS), MacOS)
+	SRC_PATH = $(shell find src/osx -type d)
+endif
 
 INC			=	$(addprefix $(TEST_PATH)/, $(INC_FILES))
 OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.s=%.o))
@@ -58,6 +84,11 @@ $(OBJ_PATH)/%.o : %.s
 	@$(ASM) $(ASFLAGS) $< -o $@
 
 # DEBUG #
+
+.PHONY: show
+show:
+	@echo "OS: $(OS_NAME)"
+	@echo "SRC_PATH: $(SRC_PATH)"
 
 .PHONY: debug
 debug: $(NAME)

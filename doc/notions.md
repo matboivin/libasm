@@ -6,6 +6,13 @@
 
 ### Links
 
+CPU
+
+- [Central processing unit](https://en.wikipedia.org/wiki/Central_processing_unit)
+- [CPU - Pipeline (Cycle)](https://datacadamia.com/computer/cpu/pipeline)
+
+Assembly
+
 - [Makefile for building ASM/C project](https://codereview.stackexchange.com/questions/156479/makefile-for-building-asm-c-project)
 - [Assembleur - Notions de base](https://beta.hackndo.com/assembly-basics/)
 - [Assembly Language Convention Guide](http://cs.brown.edu/courses/cs031/content/docs/asmguide.pdf)

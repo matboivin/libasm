@@ -9,10 +9,12 @@
 CPU
 
 - [Central processing unit](https://en.wikipedia.org/wiki/Central_processing_unit)
+- [SimpleCPU.com](http://www.simplecpu.com/)
 - [CPU - Pipeline (Cycle)](https://datacadamia.com/computer/cpu/pipeline)
 
 Assembly
 
+- [Intel Pentium Instruction Set Reference (Basic Architecture Overview)](http://faydoc.tripod.com/cpu/index.htm)
 - [Makefile for building ASM/C project](https://codereview.stackexchange.com/questions/156479/makefile-for-building-asm-c-project)
 - [Assembleur - Notions de base](https://beta.hackndo.com/assembly-basics/)
 - [Assembly Language Convention Guide](http://cs.brown.edu/courses/cs031/content/docs/asmguide.pdf)
@@ -23,6 +25,7 @@ Assembly
 NASM
 
 - [NASM - The Netwide Assembler](https://www.nasm.us/doc/)
+- [X86 Assembly/NASM Syntax](https://en.wikibooks.org/wiki/X86_Assembly/NASM_Syntax)
 - [Learn NASM Assembly](https://www.tutorialspoint.com/assembly_programming/index.htm)
 - [NASM Tutorial](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
 

@@ -1,8 +1,6 @@
-# Process
+# NASM
 
-## NASM
-
-### Layout of a NASM Source Line
+## Layout of a NASM Source Line
 
 Traditionally, assembly code was written in a four column layout. The columns were:
 
@@ -21,6 +19,7 @@ Traditionally, assembly code was written in a four column layout. The columns we
 As you can see, the second column says “mnemonic.” This indicates both assembler directives and instructions.  [(Source)](https://stackoverflow.com/questions/55212617/indenting-for-nasm-directives-and-macros)
 
 ```
+;                     dst, src
 label:    instruction operands        ; comment
 ```
 
@@ -28,7 +27,7 @@ Source : [NASM - The Netwide Assembler](https://www.nasm.us/doc/nasmdoc3.html#se
 
 Example formatter: [nasmfmt](https://github.com/yamnikov-oleg/nasmfmt)
 
-### Leading underscore or not?
+## Leading underscore or not?
 
 - [Format of a C decorated name](https://docs.microsoft.com/en-us/cpp/build/reference/decorated-names?view=vs-2019#FormatC): Note that in a 64-bit environment, functions are not decorated (Windows)
 - [Writing 32-bit Code (Unix, Win32, DJGPP)](https://www.csee.umbc.edu/~chang/cs313.f04/nasmdoc/html/nasmdoc8.html)
@@ -39,3 +38,16 @@ In short: not so important. In C, used to indicate if more or less low level (e.
 To prefix all global and extern variables: `--prefix _`
 > The --prefix and --postfix options prepend or append (respectively) the given argument to all global or extern variables. E.g. --prefix _ will prepend the underscore to all global and external variables, as C requires it in some, but not all, system calling conventions.  [(Source)](https://www.nasm.us/xdoc/2.14rc0/html/nasmdoc2.html#section-2.1.27)
 
+## Syntax
+
+### Order of parameters
+
+Intel:
+```
+OPERATION DESTINATION, SOURCE
+```
+
+AT&T:
+```
+OPERATION SOURCE, DESTINATION
+```

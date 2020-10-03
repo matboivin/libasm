@@ -27,6 +27,7 @@ NASM
 - [NASM - The Netwide Assembler](https://www.nasm.us/doc/)
 - [X86 Assembly/NASM Syntax](https://en.wikibooks.org/wiki/X86_Assembly/NASM_Syntax)
 - [Learn NASM Assembly](https://www.tutorialspoint.com/assembly_programming/index.htm)
+- [NASM tutorial (Linux syscalls, 64 bit) code with CI-build and test](https://codereview.stackexchange.com/questions/180376/nasm-tutorial-linux-syscalls-64-bit-code-with-ci-build-and-test)
 - [NASM Tutorial](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
 
 Memory
@@ -36,4 +37,9 @@ Memory
 
 Syscall
 
+- [The Definitive Guide to Linux System Calls](https://blog.packagecloud.io/eng/2016/04/05/the-definitive-guide-to-linux-system-calls/)
 - [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
+
+MacOs
+
+- [Simple assembly program on MacOS](https://blacksheephacks.pl/simple-assembly-program-on-macos/)

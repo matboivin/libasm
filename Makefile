@@ -3,7 +3,7 @@ NAME		:=	libasm.a
 SHELL		=	/bin/sh
 RM			=	/bin/rm
 
-.SUFFIXE:
+.SUFFIXES:
 .SUFFIXES: .s .c .o .h
 
 # ********************************** PLATFORM ******************************** #
@@ -31,6 +31,7 @@ ifeq ($(OS), MacOS)
 endif
 
 CC			=	gcc
+
 CFLAGS		=	-Wall -Wextra -Werror
 IFLAGS		=	-I$(TEST_DIR)
 LFLAGS		=	-L. -lasm

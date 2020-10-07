@@ -1,7 +1,7 @@
 NAME		:=	libasm.a
 
 SHELL		=	/bin/sh
-RM			=	rm -rf
+RM			=	/bin/rm
 
 .SUFFIXE:
 .SUFFIXES: .s .c .o .h
@@ -32,27 +32,27 @@ endif
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
-IFLAGS		=	-I$(TEST_PATH)
-LFLAGS		=	-L -lasm
+IFLAGS		=	-I$(TEST_DIR)
+LFLAGS		=	-L. -lasm
 
-# ******************************** DIR AND PATHS ***************************** #
+# ******************************* DIRS AND PATHS ***************************** #
 
-TEST_PATH	=	$(shell find tests -type d)
-OBJ_PATH	=	obj
+TEST_DIR	=	tests
+OBJ_DIR		=	obj
 
 ifeq ($(OS), Linux)
-	SRC_PATH = $(shell find src/linux -type d)
+	SRC_DIR = src/linux
 endif
 
 ifeq ($(OS), MacOS)
-	SRC_PATH = $(shell find src/osx -type d)
+	SRC_DIR = src/osx
 endif
 
-INC			=	$(addprefix $(TEST_PATH)/, $(INC_FILES))
-OBJ			=	$(addprefix $(OBJ_PATH)/, $(SRC:%.s=%.o))
-TEST		=	$(addprefix $(TEST_PATH)/, $(TEST_FILES))
+INC			=	$(addprefix $(TEST_DIR)/, $(INC_FILES))
+OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.s=%.o))
+TEST		=	$(addprefix $(TEST_DIR)/, $(TEST_FILES))
 
-vpath %.s $(foreach dir, $(SRC_PATH), $(dir):)
+VPATH		=	$(SRC_DIR)
 
 # ********************************** FILES *********************************** #
 
@@ -67,19 +67,19 @@ SRC			=	ft_strlen.s
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(OBJ_PATH) $(OBJ)
+$(NAME): $(OBJ_DIR) $(OBJ)
 	@$(LD) -o $@ $(OBJ)
 	@echo "\nOK\t\t$(NAME) is ready"
 
 # OBJ DIR #
 
-$(OBJ_PATH):
+$(OBJ_DIR):
 	@mkdir -p $@
 	@echo "Created\t\t$@ directory"
 
 # COMPILING #
 
-$(OBJ_PATH)/%.o : %.s
+$(OBJ_DIR)/%.o : %.s
 	@echo "\r\033[KCompiling\t$< \c"
 	@$(ASM) $(ASFLAGS) $< -o $@
 
@@ -88,7 +88,7 @@ $(OBJ_PATH)/%.o : %.s
 .PHONY: show
 show:
 	@echo "OS: $(OS_NAME)"
-	@echo "SRC_PATH: $(SRC_PATH)"
+	@echo "SRC_DIR: $(SRC_DIR)"
 
 .PHONY: debug
 debug: $(NAME)
@@ -100,7 +100,7 @@ debug: $(NAME)
 
 .PHONY: clean
 clean:
-	@$(RM) $(OBJ_PATH) test_libasm
+	@$(RM) -rf $(OBJ_DIR) test_libasm
 	@echo "Cleaned\t\tobject files"
 
 .PHONY: fclean

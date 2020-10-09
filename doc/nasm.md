@@ -37,6 +37,8 @@ Source: [NASM Tutorial](https://cs.lmu.edu/~ray/notes/nasmtutorial/)
 
 > By different I do not mean that numbering of syscalls do not match, since I would be surprised if it did. Rather that there are some nuances that made my work more troublesome. [On syscall table available on Apple’s website](https://opensource.apple.com/source/xnu/xnu-2782.20.48/bsd/kern/syscalls.master) you can see that write has code 4 (instead of 1) and exit has number 1 (instead of 60). The arguments are the same due to POSIX standard and go to same registers (because this depends on the architecture of the processor). But in order to get a syscall right you have to add class identifier to the syscall number. For BSD syscalls this is 0x200000 to the syscall.  [(Source)](https://blacksheephacks.pl/simple-assembly-program-on-macos/)
 
+## Syntax
+
 ## Leading underscore or not? (Linux)
 
 - [Format of a C decorated name](https://docs.microsoft.com/en-us/cpp/build/reference/decorated-names?view=vs-2019#FormatC): Note that in a 64-bit environment, functions are not decorated (Windows)
@@ -48,8 +50,6 @@ In short: not so important. In C, used to indicate if more or less low level (e.
 To prefix all global and extern variables: `--prefix _`
 > The --prefix and --postfix options prepend or append (respectively) the given argument to all global or extern variables. E.g. --prefix _ will prepend the underscore to all global and external variables, as C requires it in some, but not all, system calling conventions.  [(Source)](https://www.nasm.us/xdoc/2.14rc0/html/nasmdoc2.html#section-2.1.27)
 
-## Syntax
-
 ### Order of parameters
 
 Intel:
@@ -60,4 +60,34 @@ OPERATION DESTINATION, SOURCE
 AT&T:
 ```
 OPERATION SOURCE, DESTINATION
+```
+
+## Exporting Symbols to Other Modules
+
+`global` makes the symbol visible to ld.
+
+`global` refers to symbols which are defined in the same module as the `global` directive.
+
+```
+        global _main 
+_main: 
+        ; some code
+```
+
+The entrypoint of the program depends on the linker used to transform the compiled code into executable file. A global symbol is exported so other files can used it. If a function (or variable) is both identified by a label and declared as global in the file where it's defined, this function can be called in another file if its label is declared as `extern` in the latter.
+
+## Size directives
+
+| Size   |       |         |
+| ------ | ----- | ------- |
+| 64-bit | qword | 8 bytes |
+| 32-bit | long  | 4 bytes |
+| 16-bit | word  | 2 bytes |
+| 8-bit  | byte  | 1 byte  |
+
+```
+mov BYTE  [dst], 0      ; Move 0 into the single byte at memory location dst
+mov WORD  [dst], 0      ; Move the 16-bit integer repr of 0 into the 2 bytes starting at memory location dst
+mov DWORD [dst], 0      ; Move the 32-bit integer repr of 0 into the 4 bytes starting at memory location dst
+mov QWORD [dst], 0      ; Move the 64-bit integer repr of 0 into the 8 bytes starting at memory location dst
 ```

@@ -5,6 +5,21 @@
 label:    instruction operands        ; comment
 ```
 
+| Size   |       |         |
+| ------ | ----- | ------- |
+| 64-bit | qword | 8 bytes |
+| 32-bit | long  | 4 bytes |
+| 16-bit | word  | 2 bytes |
+| 8-bit  | byte  | 1 byte  |
+
+## x86 register set
+
+<p align="center">
+  <img src="assets/x86-register-set.png" alt="x86 register set" />
+</p>
+
+Image source: [Program and Data Representation: Textbook](https://uva-cs.github.io/pdr/book/)
+
 ## GPR 64-bit naming conventions
 
 |     | Name                        | Purpose                                                                       | Use                                       |
@@ -17,3 +32,19 @@ label:    instruction operands        ; comment
 | RBP | Stack Base Pointer register | Stack pointer to data in the SS segment                                       | Pointer to the base of the stack          |
 | RSI | Source Index register       | Pointer to data in the segment pointed to by the DS register                  | Source pointer for string operations      |
 | RDI | Destination Index register  | Pointer to data (or destination) in the segment pointed to by the ES register | Destination pointer for string operations |
+
+## System calls numbers
+
+64-bit x86 system calls numbers:
+
+```
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h
+```
+
+Other useful headers on Debian:
+
+```
+/usr/include/x86_64-linux-gnu/sys/syscall.h
+/usr/include/x86_64-linux-gnu/asm/unistd.h
+/usr/include/x86_64-linux-gnu/bits/syscall.h
+```

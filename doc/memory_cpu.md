@@ -41,7 +41,7 @@ Source: [Computer - Storage Device (Media)](https://datacadamia.com/computer/sto
 
 Register is a hardware device component that is used for two purposes:
 
-- storage of value (at high speed,
+- storage of value (at high speed),
 - passing argument and retrieving return value (to communicate between hardware devices).
 
 Source: [Device - Register](https://datacadamia.com/computer/device/register)
@@ -51,12 +51,18 @@ One standard function of a register is to **define the input and output operand 
 
 Source: [Processor - (Execution) Register](https://datacadamia.com/computer/cpu/register/register)
 
-| Size   |       |
-| ------ | ----- |
-| 64-bit | qword |
-| 32-bit | long  |
-| 16-bit | word  |
-| 8-bit  | byte  |
+| Size   |       |         |
+| ------ | ----- | ------- |
+| 64-bit | qword | 8 bytes |
+| 32-bit | long  | 4 bytes |
+| 16-bit | word  | 2 bytes |
+| 8-bit  | byte  | 1 byte  |
+
+<p align="center">
+  <img src="assets/x86-register-set.png" alt="x86 register set" />
+</p>
+
+Image source: [Program and Data Representation: Textbook](https://uva-cs.github.io/pdr/book/)
 
 <p align="center">
   <img src="assets/register-ids.png" alt="identifiers to access registers" />

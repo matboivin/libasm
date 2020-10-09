@@ -3,6 +3,7 @@
 ### Books
 
 - [Intel® 64 and IA-32 Architectures Software Developer Manuals](https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html)
+- [Program and Data Representation: Textbook](https://uva-cs.github.io/pdr/book/)
 
 ### Links
 
@@ -11,6 +12,7 @@ CPU
 - [Central processing unit](https://en.wikipedia.org/wiki/Central_processing_unit)
 - [SimpleCPU.com](http://www.simplecpu.com/)
 - [CPU - Pipeline (Cycle)](https://datacadamia.com/computer/cpu/pipeline)
+- [Compiler explorer](https://godbolt.org/)
 
 Assembly
 
@@ -34,11 +36,15 @@ Memory
 
 - [Memory Layout of C Programs](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
 - [Gestion de la mémoire](https://beta.hackndo.com/memory-allocation/)
+- [Different Memory Addressing ( Examples by LOAD )](https://www.cs.helsinki.fi/u/kerola/tito/koksi_doc/memaddr.html)
+- [Types of Addressing Modes](https://www.gatevidyalay.com/addressing-modes/)
 
 Syscall
 
+- [INTRO(2) introduction to system calls](https://man7.org/linux/man-pages/man2/intro.2.html)
+- [syscalls(2)](Linux system calls)
 - [The Definitive Guide to Linux System Calls](https://blog.packagecloud.io/eng/2016/04/05/the-definitive-guide-to-linux-system-calls/)
-- [Linux System Call Table for x86 64](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
+- `/usr/include/x86_64-linux-gnu/asm/unistd_64.h`
 
 MacOs
 

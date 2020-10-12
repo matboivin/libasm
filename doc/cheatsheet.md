@@ -48,3 +48,12 @@ Other useful headers on Debian:
 /usr/include/x86_64-linux-gnu/asm/unistd.h
 /usr/include/x86_64-linux-gnu/bits/syscall.h
 ```
+
+## Calling conventions
+
+<p align="center">
+  <img src="syscall-invocation.png" alt="register mapping library call" />
+  <img src="call-invocation.png" alt="register mapping library call using syscall" />
+</p>
+
+Images source: [Wikibooks: X86 Assembly/Interfacing with Linux](https://en.wikibooks.org/wiki/X86_Assembly/Interfacing_with_Linux)

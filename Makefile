@@ -94,7 +94,6 @@ show:
 .PHONY: debug
 debug: $(NAME)
 	@$(CC) $(CFLAGS) $(TEST) $(LFLAGS) -o test_libasm
-	@$(RM) main.o
 	./test_libasm
 
 # CLEAN #

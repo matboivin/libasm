@@ -91,3 +91,24 @@ mov WORD  [dst], 0      ; Move the 16-bit integer repr of 0 into the 2 bytes sta
 mov DWORD [dst], 0      ; Move the 32-bit integer repr of 0 into the 4 bytes starting at memory location dst
 mov QWORD [dst], 0      ; Move the 64-bit integer repr of 0 into the 8 bytes starting at memory location dst
 ```
+
+## Prologue / Epilogue
+
+Source: [ENTER and LEAVE in Assembly?](https://stackoverflow.com/questions/5858996/enter-and-leave-in-assembly)
+
+- `enter` creates a stack frame
+- `leave` destroys a stack frame
+
+Better not used these 2 instructions.
+
+Use instead:
+
+```
+; enter / prologue
+push ebp
+mov ebp, esp
+
+; leave /epilogue
+mov esp, ebp
+pop ebp
+```

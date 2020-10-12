@@ -6,13 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 00:35:50 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/12 18:22:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
+#include <stdio.h>
 
 int		main(void)
 {
+	char	*s = "lol";
+
+	printf("ft_strlen: %ld\n", ft_strlen(s));
 	return (0);
 }

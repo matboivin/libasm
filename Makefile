@@ -61,7 +61,7 @@ VPATH		=	$(SRC_DIR) $(TEST_DIR)
 
 INC_FILES	=	libasm.h
 
-TEST_FILES	=	main.c
+TEST_FILES	=	main.c test_ft_write.c test_ft_strlen.c
 
 SRC			=	ft_strlen.s ft_write.s
 

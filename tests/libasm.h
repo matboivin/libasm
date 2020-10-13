@@ -13,8 +13,15 @@
 #ifndef LIBASM_H
 # define LIBASM_H
 
+# include <assert.h>
 # include <errno.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+# include <unistd.h>
+
+# define TEST_STR_00 "Hello World!\n"
+# define TEST_STR_EMPTY ""
 
 typedef struct		s_list
 {
@@ -33,5 +40,8 @@ void				ft_list_push_front(t_list **lst, t_list *new_elem);
 int					ft_lst_size(t_list *lst);
 void				ft_lst_sort(t_list **lst, int (*cmp)());
 void				ft_list_remove_if(t_list **lst, void *data_ref);
+
+void                test_ft_write(void);
+void                test_ft_strlen(void);
 
 #endif

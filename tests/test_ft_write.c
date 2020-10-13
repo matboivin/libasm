@@ -12,9 +12,8 @@
 
 #include "libasm.h"
 
-int		main(void)
+void		test_ft_write(void)
 {
-    test_ft_strlen();
-    test_ft_write();
-	return (0);
+    printf("FT_WRITE:\n");
+	assert(write(STDOUT_FILENO, TEST_STR_00, strlen(TEST_STR_00)) == ft_write(STDOUT_FILENO, TEST_STR_00, strlen(TEST_STR_00)));
 }

@@ -7,19 +7,18 @@
 ft_write:
         push    rbp             ; enter
         mov     rbp, rsp
-        mov     rdi, 1
-        mov     rsi, "lol"
-        mov     rdx, 3
+
         mov     rax, WRITE
         syscall
-        cmp     rax, 0
-        jnz     error
+        cmp     rax, rdx
+        jne     error
 
-        mov     rsp, rbp        ; leave
+        mov     rsp, rbp
         pop     rbp
-
         ret
 
 error:
         call    __errno_location
+        mov     rsp, rbp
+        pop     rbp
         ret

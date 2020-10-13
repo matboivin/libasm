@@ -30,9 +30,11 @@ ifeq ($(OS), MacOS)
 	ASFLAGS = -f macho64
 endif
 
-CC			=	gcc
+CC			=	clang
+AR			=	ar
 
-CFLAGS		=	-Wall -Wextra -Werror
+ARFLAGS		=	-rcs
+CFLAGS		=	-Wall -Wextra -Werror -g3
 IFLAGS		=	-I$(TEST_DIR)
 LFLAGS		=	-L. -lasm
 
@@ -53,7 +55,7 @@ INC			=	$(addprefix $(TEST_DIR)/, $(INC_FILES))
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.s=%.o))
 TEST		=	$(addprefix $(TEST_DIR)/, $(TEST_FILES))
 
-VPATH		=	$(SRC_DIR)
+VPATH		=	$(SRC_DIR) $(TEST_DIR)
 
 # ********************************** FILES *********************************** #
 
@@ -69,7 +71,7 @@ SRC			=	ft_strlen.s ft_write.s
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
-	@$(LD) -o $@ $(OBJ)
+	@$(AR) $(ARFLAGS) -o $@ $(OBJ)
 	@echo "\nOK\t\t$(NAME) is ready"
 
 # OBJ DIR #
@@ -93,7 +95,7 @@ show:
 
 .PHONY: debug
 debug: $(NAME)
-	@$(CC) $(CFLAGS) $(TEST) $(LFLAGS) -o test_libasm
+	@$(CC) $(CFLAGS) $(IFLAGS) $(TEST) -o test_libasm $(LFLAGS)
 	./test_libasm
 
 # CLEAN #

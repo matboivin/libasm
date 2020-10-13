@@ -57,3 +57,19 @@ Other useful headers on Debian:
 </p>
 
 Images source: [Wikibooks: X86 Assembly/Interfacing with Linux](https://en.wikibooks.org/wiki/X86_Assembly/Interfacing_with_Linux)
+
+## Errno
+
+`https://github.com/freebsd/freebsd/blob/master/sys/sys/errno.h`
+
+```c
+#if !defined(_KERNEL) && !defined(_STANDALONE)
+#include <sys/cdefs.h>
+__BEGIN_DECLS
+int *	__error(void);
+__END_DECLS
+#define	errno		(* __error())
+#endif
+```
+
+- [__errno_location](http://refspecs.linux-foundation.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/baselib---errno-location.html)

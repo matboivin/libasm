@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/12 18:22:17 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/13 12:43:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 int		main(void)
 {
-	char	*s = "lol";
-
-	printf("ft_strlen: %ld\n", ft_strlen(s));
+	ft_write();
 	return (0);
 }

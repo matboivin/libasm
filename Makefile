@@ -61,7 +61,7 @@ INC_FILES	=	libasm.h
 
 TEST_FILES	=	main.c
 
-SRC			=	ft_strlen.s
+SRC			=	ft_strlen.s ft_write.s
 
 # ********************************** RULES *********************************** #
 

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/14 18:15:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/14 19:14:51 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@
 # define TEST_SIZE 42
 # define TEST_STR_EMPTY ""
 # define TEST_STR_00 "Hello World!"
+# define TEST_STR_01 "a     bcd ef"
 # define TEST_FD_PATH "tests/libasm.h"
 
 void	test_ft_write(void);
 void	test_ft_read(void);
 void	test_ft_strlen(void);
+void	test_ft_strcpy(void);
 
 #endif

@@ -6,7 +6,7 @@ _ft_strlen:
         mov     rbp, rsp
 
         xor     rax, rax        ; set rax to 0
-        xor     rcx, rcx        ; set rcx (counter) to 0
+        xor     rcx, rcx        ; set rcx (count) to 0
         not     rcx             ; performs a bit-wise inversion, rcx = -1
         cld                     ; clears the direction flag: DF = 0
         repne scasb             ; scans a string until 0 is found
@@ -16,5 +16,4 @@ _ft_strlen:
 
         mov     rsp, rbp        ; leave
         pop     rbp
-
         ret

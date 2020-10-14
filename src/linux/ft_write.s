@@ -13,11 +13,11 @@ ft_write:
         cmp     rax, rdx        ; compare return is equal to count
         jne     error
 
-return:
+end:
         mov     rsp, rbp        ; leave
         pop     rbp
         ret
 
 error:
         call    __errno_location
-        jmp     return
+        jmp     end

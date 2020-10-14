@@ -1,14 +1,14 @@
-%define WRITE 1
+%define READ 0
 
         section .text
-        global  ft_write
+        global  ft_read
         extern  __errno_location
 
-ft_write:
+ft_read:
         push    rbp             ; enter
         mov     rbp, rsp
 
-        mov     rax, WRITE
+        mov     rax, READ
         syscall
         cmp     rax, rdx        ; compare return is equal to count
         jne     error

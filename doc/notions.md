@@ -60,3 +60,4 @@ Syscall
 MacOs
 
 - [Simple assembly program on MacOS](https://blacksheephacks.pl/simple-assembly-program-on-macos/)
+- [basic assembly not working on Mac (x86_64+Lion)?](https://stackoverflow.com/questions/11179400/basic-assembly-not-working-on-mac-x86-64lion)

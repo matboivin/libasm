@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libasm_tests.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/14 16:59:22 by mboivin          ###   ########.fr       */
+/*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
+/*   Updated: 2020/10/14 16:59:09 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#ifndef LIBASM_H
+# define LIBASM_H
 
-int		main(void)
-{
-	test_ft_strlen();
-	test_ft_write();
-	return (0);
-}
+# define TEST_STR_00 "Hello World!\n"
+# define TEST_STR_EMPTY ""
+
+void	test_ft_write(void);
+void	test_ft_strlen(void);
+
+#endif

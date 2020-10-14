@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/09/30 00:35:13 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/14 16:55:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
-
-# define TEST_STR_00 "Hello World!\n"
-# define TEST_STR_EMPTY ""
+# include "libasm_tests.h"
 
 typedef struct		s_list
 {
@@ -40,8 +38,5 @@ void				ft_list_push_front(t_list **lst, t_list *new_elem);
 int					ft_lst_size(t_list *lst);
 void				ft_lst_sort(t_list **lst, int (*cmp)());
 void				ft_list_remove_if(t_list **lst, void *data_ref);
-
-void                test_ft_write(void);
-void                test_ft_strlen(void);
 
 #endif

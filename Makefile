@@ -59,7 +59,7 @@ VPATH		=	$(SRC_DIR) $(TEST_DIR)
 
 # ********************************** FILES *********************************** #
 
-INC_FILES	=	libasm.h
+INC_FILES	=	libasm.h libasm_tests.h
 
 TEST_FILES	=	main.c test_ft_write.c test_ft_strlen.c
 
@@ -67,7 +67,6 @@ SRC			=	ft_strlen.s ft_write.s
 
 # ********************************** RULES *********************************** #
 
-.PHONY: all
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
@@ -88,27 +87,24 @@ $(OBJ_DIR)/%.o : %.s
 
 # DEBUG #
 
-.PHONY: show
 show:
 	@echo "OS: $(OS_NAME)"
 	@echo "SRC_DIR: $(SRC_DIR)"
 
-.PHONY: debug
 debug: $(NAME)
 	@$(CC) $(CFLAGS) $(IFLAGS) $(TEST) -o test_libasm $(LFLAGS)
 	./test_libasm
 
 # CLEAN #
 
-.PHONY: clean
 clean:
 	@$(RM) -rf $(OBJ_DIR) test_libasm
 	@echo "Cleaned\t\tobject files"
 
-.PHONY: fclean
 fclean: clean
 	@$(RM) $(NAME)
 	@echo "Removed\t\t$(NAME)"
 
-.PHONY: re
 re: fclean all
+
+.PHONY: all show debug clean fclean re

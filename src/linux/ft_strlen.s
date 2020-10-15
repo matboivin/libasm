@@ -8,7 +8,7 @@ ft_strlen:
         xor     rax, rax        ; clears rax
         xor     rcx, rcx        ; clears rcx (count)
         not     rcx             ; performs a bit-wise inversion, rcx = -1
-        cld                     ; clears the direction flag: DF = 0
+        cld                     ; clears DF to scan in the forward direction
         repne scasb             ; scans string until trailing null char is found
         not     rcx             ; performs a bit-wise inversion
         dec     rcx             ; decrements rcx by 1 to remove trailing zero

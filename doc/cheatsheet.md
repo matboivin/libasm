@@ -73,3 +73,11 @@ __END_DECLS
 ```
 
 - [__errno_location](http://refspecs.linux-foundation.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/baselib---errno-location.html)
+
+## Push and pop
+
+<p align="center">
+  <img src="stack-growth.png" alt="stack growth" />
+</p>
+
+Image source: [asm.pdf](https://markfloryan.github.io/pdr/slides/reiss/asm.pdf)

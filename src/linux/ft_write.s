@@ -8,9 +8,9 @@ ft_write:
         push    rbp             ; enter
         mov     rbp, rsp
 
-        mov     rax, WRITE
+        mov     rax, WRITE      ; moves syscall number in rax
         syscall
-        cmp     rax, rdx        ; compare return is equal to count
+        cmp     rax, rdx        ; compares return is equal to count
         jne     error
 
 end:

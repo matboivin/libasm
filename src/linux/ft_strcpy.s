@@ -5,15 +5,15 @@ ft_strcpy:
         push    rbp             ; enter
         mov     rbp, rsp
 
-        xor     rax, rax        ; set rax to 0
-        xor     rcx, rcx        ; set rcx (count) to 0
+        xor     rax, rax        ; clears rax
+        xor     rcx, rcx        ; clears rcx (count)
 
 loop:
+        cmp     BYTE [rsi], 0   ; checks for trailing null char
+        je      end
         mov     al, [rsi + rcx] ; moves to al the byte at address src + count
         mov     [rdi + rcx], al ; moves to dst + count the byte from al
         inc     rcx             ; increments count by 1
-        cmp     BYTE [rsi], 0   ; checks for terminating character
-        je      end
         jmp     loop
 
 end:

@@ -8,9 +8,9 @@ ft_read:
         push    rbp             ; enter
         mov     rbp, rsp
 
-        mov     rax, READ
+        mov     rax, READ       ; moves syscall number in rax
         syscall
-        cmp     rax, rdx        ; compare return is equal to count
+        cmp     rax, rdx        ; compares return is equal to count
         jne     error
 
 end:

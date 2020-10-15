@@ -77,7 +77,7 @@ __END_DECLS
 ## Push and pop
 
 <p align="center">
-  <img src="assets/stack-growth.png" alt="stack growth" />
+  <img src="stack-growth.png" alt="stack growth" />
 </p>
 
 Image source: [asm.pdf](https://markfloryan.github.io/pdr/slides/reiss/asm.pdf)

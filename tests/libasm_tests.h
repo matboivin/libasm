@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/15 18:34:26 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/16 17:41:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 
 void	test_ft_strcmp(void);
 void	test_ft_strcpy(void);
+void	test_ft_strdup(void);
 void	test_ft_strlen(void);
 void	test_ft_write(void);
 void	test_ft_read(void);

@@ -61,17 +61,19 @@ VPATH		=	$(SRC_DIR) $(TEST_DIR)
 
 INC_FILES	=	libasm.h libasm_tests.h
 
-TEST_FILES	=	main.c \
-				test_ft_strcmp.c \
-				test_ft_strcpy.c \
-				test_ft_strlen.c \
-				test_ft_read.c \
+TEST_FILES	=	main.c				\
+				test_ft_strcmp.c	\
+				test_ft_strcpy.c	\
+				test_ft_strdup.c	\
+				test_ft_strlen.c	\
+				test_ft_read.c		\
 				test_ft_write.c
 
-SRC			=	ft_strcmp.s \
-				ft_strcpy.s \
-				ft_strlen.s \
-				ft_read.s \
+SRC			=	ft_strcmp.s			\
+				ft_strcpy.s			\
+				ft_strdup.s			\
+				ft_strlen.s			\
+				ft_read.s			\
 				ft_write.s
 
 # ********************************** RULES *********************************** #

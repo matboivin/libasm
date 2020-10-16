@@ -10,16 +10,16 @@ _ft_read:
         push    rbp             ; enter
         mov     rbp, rsp
 
-        mov     rax, MAC_SYSCALL_CONSTRUCT(READ)
+        mov     rax, READ       ; moves syscall number in rax
         syscall
-        cmp     rax, rdx        ; compare return is equal to count
+        cmp     rax, rdx        ; compares return is equal to count
         jne     _error
 
-_return:
+_end:
         mov     rsp, rbp        ; leave
         pop     rbp
         ret
 
 _error:
-        call    ___error
-        jmp     _return
+        call    __errno_location
+        jmp     _end

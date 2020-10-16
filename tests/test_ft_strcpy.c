@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/14 20:07:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/16 17:10:53 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void		test_ft_strcpy(void)
 {
 	printf("FT_STRCPY\n\n");
 	compare_copies(TEST_STR_EMPTY, TEST_STR_EMPTY);
+	compare_copies(TEST_STR_00, TEST_STR_EMPTY);
 	compare_copies(TEST_STR_EMPTY, TEST_STR_00);
 	compare_copies(TEST_STR_01, TEST_STR_00);
 	compare_copies(TEST_STR_00, TEST_STR_01);

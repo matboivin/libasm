@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/14 18:20:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/17 19:15:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void	compare_read_ret(const char *pathname, size_t count)
 void		test_ft_read(void)
 {
 	printf("FT_READ\n\n");
+	compare_read_ret(TEST_FD_PATH, TEST_NEG);
 	compare_read_ret(TEST_FD_PATH, DEFAULT_VALUE);
 	compare_read_ret(TEST_FD_PATH, TEST_SIZE);
 	printf("-------------------------- OK --------------------------\n");

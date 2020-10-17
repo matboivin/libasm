@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/16 16:30:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/17 19:15:11 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static void	compare_write_ret(int fd, const void *buf, size_t count)
 void		test_ft_write(void)
 {
 	printf("FT_WRITE\n\n");
-	//compare_write_ret(STDOUT_FILENO, NULL, TEST_SIZE);
+	compare_write_ret(STDOUT_FILENO, NULL, TEST_SIZE);
+	compare_write_ret(STDOUT_FILENO, TEST_STR_00, TEST_NEG);
 	compare_write_ret(STDOUT_FILENO, TEST_STR_00, DEFAULT_VALUE);
 	compare_write_ret(STDOUT_FILENO, TEST_STR_00, strlen(TEST_STR_00));
 	printf("-------------------------- OK --------------------------\n");

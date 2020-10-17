@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/16 17:41:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/17 19:16:10 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define TEST_FD_PATH "tests/libasm.h"
 
 # define TEST_SIZE 42
+# define TEST_NEG -100
 
 # define TEST_STR_EMPTY ""
 # define TEST_STR_00 "Hello World!"

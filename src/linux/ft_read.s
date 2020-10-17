@@ -1,4 +1,5 @@
 %define READ 0
+%define ERROR_VAL -1
 
         section .text
         global  ft_read
@@ -19,5 +20,6 @@ end:
         ret
 
 error:
-        call    __errno_location
+        ;call    __errno_location
+        mov     BYTE rax, ERROR_VAL
         jmp     end

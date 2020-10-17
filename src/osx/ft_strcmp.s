@@ -9,7 +9,7 @@ _ft_strcmp:
 
 _loop:
         cmp     BYTE [rdi], 0   ; checks for trailing null char in s1
-        je      _end
+        jz      _end
         mov     al, [rdi]       ; moves s1 char in al
         sub     al, [rsi]       ; subtracts s2 char from al
         inc     rdi             ; increments s1

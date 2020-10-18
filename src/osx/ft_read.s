@@ -25,4 +25,4 @@ _error:
         mov     rdi, rax
         call    ___error
         mov     BYTE rax, ERROR_VAL
-        jmp     end
+        jmp     _end

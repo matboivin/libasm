@@ -11,7 +11,7 @@ ft_read:
 
         mov     rax, READ               ; moves syscall number in rax
         syscall
-        cmp     rax, rdx                ; compares return is equal to count
+        cmp     rax, rdx                ; checks whether return is equal to count
         jne     error
 
 end:
@@ -20,9 +20,9 @@ end:
         ret
 
 error:
-        neg     rdi                     ; gets the positive error code
-        mov     rdi, rax                ; moves syscall return
+        neg     rax                     ; gets the positive error code
+        push    rax                     ; saves error code
         call    __errno_location        ; gets the address of the errno variable
-        mov     [rax], rdi              ; sets the value of errno with the error code
-        mov     BYTE rax, ERROR_VAL     ; sets the return value to -1
+        pop     WORD [rax]              ; restores the error code as the value of errno
+        mov     rax, ERROR_VAL          ; sets the return value to -1
         jmp     end

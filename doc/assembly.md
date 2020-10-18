@@ -127,7 +127,7 @@ _main:
 
 The entrypoint of the program depends on the linker used to transform the compiled code into executable file. A global symbol is exported so other files can used it. If a function (or variable) is both identified by a label and declared as global in the file where it's defined, this function can be called in another file if its label is declared as `extern` in the latter.
 
-## Size directives
+## Operand size specifiers
 
 | Size   |       |         |
 | ------ | ----- | ------- |

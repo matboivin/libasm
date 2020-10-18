@@ -10,16 +10,15 @@ ft_strdup:
         mov     rbp, rsp
 
         push    rdi                     ; saves the string
-
         call    ft_strlen               ; gets the string length
         inc     rax                     ; increments for terminating null character
-        mov     rdi, rax                ; moves len in rdi to malloc the result
+        mov     rdi, rax                ; moves length in rdi to malloc the result
 
         call    malloc
-        mov     rdi, rax                ; moves malloc result
-        test    rax, rax                ; test malloc return
+        test    rax, rax                ; checks malloc return
         jz      error
 
+        mov     rdi, rax                ; moves address to be used as dst for copy
         pop     rsi                     ; restores the string as src
         call    ft_strcpy
 
@@ -29,7 +28,9 @@ end:
         ret
 
 error:
-        call    __errno_location
-        mov     [rax], rdi              ; sets the value of errno with the error code
+        neg     rax                     ; gets the positive error code
+        push    rax                     ; saves error code
+        call    __errno_location        ; gets the address of the errno variable
+        pop     WORD [rax]              ; restores the error code as the value of errno
         xor     rax, rax                ; sets the return value to 0
         jmp     end

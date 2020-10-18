@@ -22,9 +22,9 @@ _end:
         ret
 
 _error:
-        neg     rdi
-        mov     rdi, rax
+        neg     rax
+        push    rax
         call    ___error
-        mov     [rax], rdi
-        mov     BYTE rax, ERROR_VAL
+        pop     WORD [rax]
+        mov     rax, ERROR_VAL
         jmp     _end

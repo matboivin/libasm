@@ -29,5 +29,6 @@ void		test_ft_strdup(void)
 	printf("FT_STRDUP\n\n");
 	compare_duplicates(TEST_STR_EMPTY);
 	compare_duplicates(TEST_STR_00);
+	compare_duplicates(TEST_STR_01);
 	printf("-------------------------- OK --------------------------\n");
 }

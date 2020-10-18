@@ -51,6 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-test_libasm
 .gdb_history
 peda-session-test_libasm.txt
+test_libasm
+test_disass

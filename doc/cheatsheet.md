@@ -73,6 +73,7 @@ __END_DECLS
 ```
 
 - [__errno_location](http://refspecs.linux-foundation.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/baselib---errno-location.html)
+- [How to change errno value in asm x64](https://stackoverflow.com/questions/62046052/how-to-change-errno-value-in-asm-x64)
 
 ## Push and pop
 

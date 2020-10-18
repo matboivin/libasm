@@ -1,7 +1,3 @@
-; malloc(size_t size);
-; strdup(const char *s);
-; ft_strcpy(char *dst, const char *src)
-
         section .text
         global  ft_strdup
         extern  ft_strlen
@@ -13,18 +9,18 @@ ft_strdup:
         push    rbp             ; enter
         mov     rbp, rsp
 
-        push    rdi
+        push    rdi             ; saves the string
 
-        call    ft_strlen
+        call    ft_strlen       ; gets the string length
         inc     rax             ; increments for terminating null character
-        mov     rdi, rax
+        mov     rdi, rax        ; moves len in rdi to malloc the result
 
         call    malloc
-        test    al, al
+        test    rax, rax        ; test malloc return
         jz      error
 
-        pop     rsi
-        mov     rdi, rax
+        mov     rdi, rax        ; moves malloc result as dst
+        pop     rsi             ; restores the string as src
 
         call    ft_strcpy
 
@@ -35,5 +31,5 @@ end:
 
 error:
         ;call    __errno_location
-        mov     BYTE rax, 0
+        xor     rax, rax
         jmp     end

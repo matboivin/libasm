@@ -6,20 +6,21 @@
         extern  __errno_location
 
 ft_write:
-        push    rbp             ; enter
+        push    rbp                     ; enter
         mov     rbp, rsp
 
-        mov     rax, WRITE      ; moves syscall number in rax
+        mov     rax, WRITE              ; moves syscall number in rax
         syscall
-        cmp     rax, rdx        ; compares return is equal to count
+        cmp     rax, rdx                ; compares return is equal to count
         jne     error
 
 end:
-        mov     rsp, rbp        ; leave
+        mov     rsp, rbp                ; leave
         pop     rbp
         ret
 
 error:
-        ;call    __errno_location
+        mov     rdi, rax                ; moves syscall return
+        call    __errno_location
         mov     BYTE rax, ERROR_VAL
         jmp     end

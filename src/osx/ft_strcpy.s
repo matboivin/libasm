@@ -6,19 +6,19 @@ _ft_strcpy:
         mov     rbp, rsp
 
         xor     rax, rax        ; clears rax
-        xor     rcx, rcx        ; clears rcx (count)
+        mov     rax, rdi        ; returns pointer to dst
 
 _loop:
         cmp     BYTE [rsi], 0   ; checks src
-        je      end
-        mov     al, [rsi + rcx] ; moves to al the byte from src + count
-        mov     [rdi + rcx], al ; moves to dst + count the byte from al
-        inc     rcx             ; increments count by 1
-        jnz     _loop
+        je      _end
+        mov     dl, [rsi]       ; moves to dl the byte from src
+        mov     [rdi], dl       ; moves to dst the byte from dl
+        inc     rdi             ; increments dst
+        inc     rsi             ; increments src
+        jmp     _loop
 
 _end:
         mov     BYTE [rdi], 0   ; adds trailing null char
-        mov     rax, rdi        ; returns pointer to dst
         mov     rsp, rbp        ; leave
         pop     rbp
         ret

@@ -16,12 +16,11 @@ ft_strdup:
         mov     rdi, rax        ; moves len in rdi to malloc the result
 
         call    malloc
+        mov     rdi, rax        ; moves malloc result
         test    rax, rax        ; test malloc return
         jz      error
 
-        mov     rdi, rax        ; moves malloc result as dst
         pop     rsi             ; restores the string as src
-
         call    ft_strcpy
 
 end:
@@ -30,6 +29,6 @@ end:
         ret
 
 error:
-        ;call    __errno_location
+        call    __errno_location
         xor     rax, rax
         jmp     end

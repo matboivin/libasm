@@ -22,6 +22,7 @@ _end:
         ret
 
 _error:
-        ;call    ___error
+        mov     rdi, rax
+        call    ___error
         mov     BYTE rax, ERROR_VAL
-        jmp     _end
+        jmp     end

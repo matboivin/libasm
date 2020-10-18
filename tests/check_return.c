@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_return.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 20:34:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 20:37:45 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-int				main(void)
+void	check_return(bool condition, t_result *count)
 {
-	t_result	count;
-
-	PRINT_START();
-	count.total = 0;
-	count.passed = 0;
-	test_ft_read(&count);
-	test_ft_write(&count);
-	test_ft_strlen(&count);
-	test_ft_strcpy(&count);
-	test_ft_strcmp(&count);
-	test_ft_strdup(&count);
-	PRINT_TEST_RESULTS(count.passed, count.total);
-	PRINT_END();
-	return (0);
+	count->total += 1;
+	if (condition)
+	{
+		count->passed += 1;
+		PRINT_TEST_OK();
+	}
+	else
+		PRINT_TEST_KO();
 }

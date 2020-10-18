@@ -6,13 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/14 18:20:01 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 20:31:52 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 
-static void	compare_lenghts(const char *s)
+static void	compare_lenghts(t_result *count, const char *s)
 {
 	int		strlen_ret;
 	int		ft_ret;
@@ -22,13 +22,14 @@ static void	compare_lenghts(const char *s)
 	printf("input: \"%s\"\n", s);
 	printf("strlen:\t\t%d\n", strlen_ret);
 	printf("ft_strlen:\t%d\n\n", ft_ret);
-	assert(strlen_ret == ft_ret);
+	check_return((strlen_ret == ft_ret), count);
 }
 
-void		test_ft_strlen(void)
+void		test_ft_strlen(t_result *count)
 {
 	printf("FT_STRLEN\n\n");
-	compare_lenghts(TEST_STR_EMPTY);
-	compare_lenghts(TEST_STR_00);
-	printf("-------------------------- OK --------------------------\n");
+	PRINT_TEST_NAME("FT_STRLEN");
+	compare_lenghts(count, TEST_STR_EMPTY);
+	compare_lenghts(count, TEST_STR_00);
+	PRINT_TEST_RESULTS(count->passed, count->total);
 }

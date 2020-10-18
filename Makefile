@@ -62,6 +62,8 @@ VPATH		=	$(SRC_DIR) $(TEST_DIR)
 INC_FILES	=	libasm.h libasm_tests.h
 
 TEST_FILES	=	main.c				\
+				check_errno_val.c	\
+				check_return.c		\
 				test_ft_strcmp.c	\
 				test_ft_strcpy.c	\
 				test_ft_strdup.c	\

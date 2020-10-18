@@ -25,6 +25,9 @@ static int	read_file(const char *pathname, size_t count)
 		exit(EXIT_FAILURE);
 	ret = read(fd, buffer, count);
 	printf("read:\t\t\"%s\" | ret: %d\n", buffer, ret);
+	if (ret == -1)
+		printf("errno: %d\n", errno);
+	printf("\n");
 	fclose(stream);
 	return (ret);
 }
@@ -41,7 +44,10 @@ static int	ft_read_file(const char *pathname, size_t count)
 	if (!stream || fd == -1)
 		exit(EXIT_FAILURE);
 	ret = ft_read(fd, buffer, count);
-	printf("ft_read:\t\"%s\" | ret: %d\n\n", buffer, ret);
+	printf("ft_read:\t\"%s\" | ret: %d\n", buffer, ret);
+	if (ret == -1)
+		printf("errno: %d\n", errno);
+	printf("\n");
 	fclose(stream);
 	return (ret);
 }
@@ -62,5 +68,5 @@ void		test_ft_read(void)
 	compare_read_ret(TEST_FD_PATH, TEST_NEG);
 	compare_read_ret(TEST_FD_PATH, DEFAULT_VALUE);
 	compare_read_ret(TEST_FD_PATH, TEST_SIZE);
-	printf("-------------------------- OK --------------------------\n");
+	printf("------------------------------ OK ------------------------------\n");
 }

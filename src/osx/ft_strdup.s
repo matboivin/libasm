@@ -30,5 +30,6 @@ _end:
 
 _error:
         call    ___error
+        mov     [rax], rdi
         xor     rax, rax
         jmp     _end

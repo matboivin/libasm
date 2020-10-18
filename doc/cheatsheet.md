@@ -60,6 +60,13 @@ Images source: [Wikibooks: X86 Assembly/Interfacing with Linux](https://en.wikib
 
 ## Errno
 
+Install `moreutils` package on Linux and run:
+```
+errno -l
+```
+
+> System calls are not required to return only positive or negative error codes. You need to read the source to be sure how it will return errors. Usually, it is the negative of a standard error code, for example, -EPERM.  The _syscall() macros will return the result r of the system call when r is nonnegative, but will return -1 and set the variable errno to -r when r is negative.  For the error codes, see errno(3).  [(Source)](_syscall(2) — Linux manual page)
+
 `https://github.com/freebsd/freebsd/blob/master/sys/sys/errno.h`
 
 ```c
@@ -72,8 +79,15 @@ __END_DECLS
 #endif
 ```
 
-- [__errno_location](http://refspecs.linux-foundation.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/baselib---errno-location.html)
-- [How to change errno value in asm x64](https://stackoverflow.com/questions/62046052/how-to-change-errno-value-in-asm-x64)
+The [__errno_location](http://refspecs.linux-foundation.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/baselib---errno-location.html) function shall return the address of the errno variable for the current thread.
+
+Steps:
+
+- Reverse the sign of the error code to get the positive error code
+- Moves function's return from rax to rdi to pass it to `__errno_location`
+- Call `__errno_location`
+- The return of `__errno_location` is the address of the errno variable
+- Set its value with the error code
 
 ## Push and pop
 

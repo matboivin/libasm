@@ -20,7 +20,9 @@ end:
         ret
 
 error:
+        neg     rdi                     ; gets the positive error code
         mov     rdi, rax                ; moves syscall return
-        call    __errno_location
-        mov     BYTE rax, ERROR_VAL
+        call    __errno_location        ; gets the address of the errno variable
+        mov     [rax], rdi              ; sets the value of errno with the error code
+        mov     BYTE rax, ERROR_VAL     ; sets the return value to -1
         jmp     end

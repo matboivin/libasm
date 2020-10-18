@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 17:40:55 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 20:57:21 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/18 21:05:08 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	compare_duplicates(t_result *count, const char *s)
 	ft_ret = ft_strdup(s);
 	printf("input: \"%s\"\n", s);
 	printf("strdup:\t\t\"%s\"\n", strdup_ret);
-	printf("ft_strdup:\t\"%s\"\n\n", ft_ret);
+	printf("ft_strdup:\t\"%s\"\n", ft_ret);
 	check = strcmp(strdup_ret, ft_ret);
 	check_return((check == 0), count);
 	if (strdup_errno && ft_errno)

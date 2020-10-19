@@ -54,4 +54,5 @@ dkms.conf
 .gdb_history
 peda-session-test_libasm.txt
 test_libasm
-test_disass
+tests/disass/output/
+tests/disass/src/

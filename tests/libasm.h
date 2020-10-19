@@ -6,14 +6,13 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/15 18:37:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:44:02 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBASM_H
 # define LIBASM_H
 
-# include <assert.h>
 # include <errno.h>
 # include <stdlib.h>
 # include <stdio.h>

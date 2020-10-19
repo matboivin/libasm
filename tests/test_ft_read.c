@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:27:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:38:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void		test_ft_read(void)
 
 	g_results->test_num = 0;
 	PRINT_TEST_NAME("FT_READ");
+	compare_read_ret(buf, "lol", TEST_NEG);
 	compare_read_ret(buf, TEST_FD_PATH, TEST_NEG);
 	compare_read_ret(buf, TEST_FD_PATH, DEFAULT_VALUE);
 	compare_read_ret(buf, TEST_FD_PATH, TEST_SIZE);

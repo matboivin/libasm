@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:35:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:46:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBASM_TESTS_H
 
 # include <stdbool.h>
-# include <stdlib.h>
 # include <stdint.h>
 # include <sys/stat.h>
 # include <fcntl.h>
@@ -111,8 +110,12 @@ extern t_result	*g_results;
 	printf(																\
 		"%s-> An error happened. Checking errno value:%s\n",			\
 		COL_YELLOW_B, COL_RESET);										\
-	printf("%s errno:\t%d\n", func_name, ori_errno);					\
-	printf("ft_%s errno:\t%d\n", func_name, ft_errno);					\
+	printf(																\
+		"%s errno:\t%d \"%s\"\n",										\
+		func_name, ori_errno, strerror(ori_errno));						\
+	printf(																\
+		"ft_%s errno:\t%d \"%s\"\n",									\
+		func_name, ft_errno, strerror(ft_errno));						\
 }
 
 # define PRINT_TEST_RESULTS(passed, total)								\

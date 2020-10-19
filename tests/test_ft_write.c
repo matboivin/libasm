@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:54:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 19:30:58 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void	compare_write_ret(int fd, const void *buf, size_t n)
 	check_return(write_ret == ft_ret);
 	if (write_errno && ft_errno)
 		check_errno_val("write", write_errno, ft_errno);
-
 }
 
 void		test_ft_write(void)

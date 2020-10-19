@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:53:23 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 19:16:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	compare_strings(char *s1, const char *s2)
 	check_return(strcmp_ret == ft_ret);
 }
 
-void		test_ft_strcmp()
+void		test_ft_strcmp(void)
 {
 	g_results->test_num = 0;
 	PRINT_TEST_NAME("FT_STRCMP");

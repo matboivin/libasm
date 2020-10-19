@@ -52,8 +52,9 @@ ifeq ($(OS), MacOS)
 endif
 
 INC			=	$(addprefix $(TEST_DIR)/, $(INC_FILES))
-OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.s=%.o))
 TEST		=	$(addprefix $(TEST_DIR)/, $(TEST_FILES))
+OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.s=%.o))
+OBJ_BONUS	=	$(addprefix $(OBJ_DIR)/, $(SRC_BONUS:%.s=%.o))
 
 VPATH		=	$(SRC_DIR) $(TEST_DIR)
 
@@ -62,6 +63,8 @@ VPATH		=	$(SRC_DIR) $(TEST_DIR)
 INC_FILES	=	libasm.h libasm_tests.h
 
 TEST_FILES	=	main.c				\
+				launch_tests.c		\
+				result_count.c		\
 				check_errno_val.c	\
 				check_return.c		\
 				test_ft_strcmp.c	\
@@ -70,7 +73,7 @@ TEST_FILES	=	main.c				\
 				test_ft_strlen.c	\
 				test_ft_read.c		\
 				test_ft_write.c		\
-				result_count.c
+				test_ft_list_size.c
 
 SRC			=	ft_strcmp.s			\
 				ft_strcpy.s			\
@@ -78,6 +81,8 @@ SRC			=	ft_strcmp.s			\
 				ft_strlen.s			\
 				ft_read.s			\
 				ft_write.s
+
+SRC_BONUS	=	ft_list_size.s
 
 # ********************************** RULES *********************************** #
 
@@ -99,15 +104,26 @@ $(OBJ_DIR)/%.o : %.s
 	@echo "\r\033[KCompiling\t$< \c"
 	@$(ASM) $(ASFLAGS) $< -o $@
 
+# BONUS #
+
+bonus: $(NAME) $(OBJ_BONUS)
+	@$(AR) $(ARFLAGS) -o $(NAME) $(OBJ_BONUS)
+	@echo "\nOK\t\tAdded bonus files to $(NAME)"
+
 # DEBUG #
 
 show:
 	@echo "OS: $(OS_NAME)"
 	@echo "SRC_DIR: $(SRC_DIR)"
 
-debug: $(NAME)
+create_tests: $(NAME)
 	@$(CC) $(CFLAGS) $(IFLAGS) $(TEST) -o test_libasm $(LFLAGS)
-	./test_libasm
+
+debug: create_tests
+	@./test_libasm
+
+debug_bonus: debug
+	@./test_libasm --bonus
 
 # CLEAN #
 
@@ -121,4 +137,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all show debug clean fclean re
+.PHONY: all bonus show create_tests debug debug_bonus clean fclean re

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:52:59 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 19:27:31 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 /*
 ** Test values
 */
+
+# define MIN_ARGC 1
+# define MAX_ARGC 2
+# define BONUS_OPT "--bonus"
 
 # define DEFAULT_VALUE 0
 # define READ_MODE "r"
@@ -132,16 +136,32 @@ extern t_result	*g_results;
 	PRINT_SEP();														\
 }
 
+/*
+** Result counter
+*/
+
 t_result	*malloc_result(void);
 void		free_result(t_result *to_free);
 void		check_return(bool condition);
 void		check_errno_val(char *func_name, int ori_errno, int ft_errno);
 
+/*
+** Test mandatory functions
+*/
+
+void		launch_tests(void);
 void		test_ft_read(void);
 void		test_ft_write(void);
 void		test_ft_strcmp(void);
 void		test_ft_strcpy(void);
 void		test_ft_strdup(void);
 void		test_ft_strlen(void);
+
+/*
+** Test bonus functions
+*/
+
+void		launch_bonus_tests(void);
+void		test_ft_list_size(void);
 
 #endif

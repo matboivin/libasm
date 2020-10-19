@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/18 20:55:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:35:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define LIBASM_TESTS_H
 
 # include <stdbool.h>
+# include <stdlib.h>
 # include <stdint.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 /*
 ** Test values
@@ -41,13 +44,17 @@ typedef	struct	s_result
 {
 	uint32_t	total;
 	uint32_t	passed;
+	int			test_num;
 }				t_result;
+
+extern t_result	*g_results;
 
 /*
 ** Output formatting
 */
 
 # define COL_RESET "\033[0m"
+# define COL_WHITE_B "\033[1m"
 # define COL_RED "\033[0;31m"
 # define COL_RED_B "\033[1;31m"
 # define COL_GREEN "\033[0;32m"
@@ -59,7 +66,8 @@ typedef	struct	s_result
 
 # define PRINT_SEP(void)												\
 {																		\
-	printf("%s*******************************************************************************%s\n\n", COL_BLUE, COL_RESET);	\
+	printf(																\
+		"%s*******************************************************************************%s\n\n", COL_BLUE, COL_RESET);	\
 }
 
 # define PRINT_START(void)												\
@@ -80,6 +88,14 @@ typedef	struct	s_result
 	printf("%s-> %s%s\n\n", COL_BLUE_B, name, COL_RESET);				\
 }
 
+# define PRINT_TEST_INPUT(num, input)									\
+{																		\
+	printf("%sTest n. %d:%s", COL_BLUE, num, COL_RESET);				\
+	if (input)															\
+		printf(" input -> \"%s\"", input);								\
+	printf("\n");														\
+}
+
 # define PRINT_TEST_OK(void)											\
 {																		\
 	printf("%s-> OK%s\n\n", COL_GREEN_B, COL_RESET);					\
@@ -92,8 +108,10 @@ typedef	struct	s_result
 
 # define PRINT_ERRNO_VAL(func_name, ori_errno, ft_errno)				\
 {																		\
-	printf("%s-> Error happened. Checking errno value:%s\n", COL_YELLOW_B, COL_RESET);	\
-	printf("%s errno:\t%d\n", func_name, ori_errno);						\
+	printf(																\
+		"%s-> An error happened. Checking errno value:%s\n",			\
+		COL_YELLOW_B, COL_RESET);										\
+	printf("%s errno:\t%d\n", func_name, ori_errno);					\
 	printf("ft_%s errno:\t%d\n", func_name, ft_errno);					\
 }
 
@@ -103,19 +121,22 @@ typedef	struct	s_result
 	if (passed == total)												\
 		printf("%s-> All tests passed%s\n\n", COL_GREEN_B, COL_RESET);	\
 	else																\
-		printf("%s-> %d tests failed%s\n\n", COL_RED_B, (total - passed), COL_RESET);	\
+		printf(															\
+			"%s-> %d tests failed%s\n\n",								\
+			COL_RED_B, (total - passed), COL_RESET);					\
 	PRINT_SEP();														\
 }
 
-void	check_return(bool condition, t_result *count);
-void	check_errno_val(
-	char *func_name, int ori_errno, int ft_errno, t_result *count);
+t_result	*malloc_result(void);
+void		free_result(t_result *to_free);
+void		check_return(bool condition);
+void		check_errno_val(char *func_name, int ori_errno, int ft_errno);
 
-void	test_ft_strcmp(t_result *count);
-void	test_ft_strcpy(t_result *count);
-void	test_ft_strdup(t_result *count);
-void	test_ft_strlen(t_result *count);
-void	test_ft_write(t_result *count);
-void	test_ft_read(t_result *count);
+void		test_ft_read(void);
+void		test_ft_write(void);
+void		test_ft_strcmp(void);
+void		test_ft_strcpy(void);
+void		test_ft_strdup(void);
+void		test_ft_strlen(void);
 
 #endif

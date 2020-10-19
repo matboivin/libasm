@@ -69,7 +69,8 @@ TEST_FILES	=	main.c				\
 				test_ft_strdup.c	\
 				test_ft_strlen.c	\
 				test_ft_read.c		\
-				test_ft_write.c
+				test_ft_write.c		\
+				result_count.c
 
 SRC			=	ft_strcmp.s			\
 				ft_strcpy.s			\

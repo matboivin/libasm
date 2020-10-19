@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:22:53 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:54:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ static void	compare_write_ret(int fd, const void *buf, size_t n)
 	int		ft_errno;
 
 	g_results->test_num++;
-	PRINT_TEST_INPUT(g_results->test_num, NULL);
+	PRINT_TEST_INPUT(g_results->test_num, buf, NULL);
 	write_errno = 0;
 	ft_errno = 0;
-	printf("input: \"%s\"\n", buf);
 	write_ret = write(fd, buf, n);
 	printf("write:\t\t%d\n", write_ret);
 	ft_ret = ft_write(fd, buf, n);

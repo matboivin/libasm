@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:26:55 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:53:23 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	compare_strings(char *s1, const char *s2)
 	int		ft_ret;
 
 	g_results->test_num++;
-	PRINT_TEST_INPUT(g_results->test_num, NULL);
+	PRINT_TEST_INPUT(g_results->test_num, s1, s2);
 	strcmp_ret = strcmp(s1, s2);
 	ft_ret = ft_strcmp(s1, s2);
 	printf("s1: \"%s\" | s2: \"%s\"\n", s1, s2);

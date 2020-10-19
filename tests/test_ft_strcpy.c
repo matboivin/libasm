@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:26:02 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:53:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	compare_copies(char *s1, const char *s2)
 	int		check;
 
 	g_results->test_num++;
-	PRINT_TEST_INPUT(g_results->test_num, NULL);
+	PRINT_TEST_INPUT(g_results->test_num, s1, s2);
 	dst = strdup(s1);
 	src = strdup(s2);
 	if (!dst || !src)

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:38:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:53:16 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	compare_read_ret(char *buf, const char *pathname, size_t count)
 	int		ft_errno;
 
 	g_results->test_num++;
-	PRINT_TEST_INPUT(g_results->test_num, NULL);
+	PRINT_TEST_INPUT(g_results->test_num, NULL, NULL);
 	read_errno = 0;
 	ft_errno = 0;
 	read_ret = read_file(buf, pathname, count, &read_errno);

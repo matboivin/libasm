@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:46:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/19 17:52:59 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,13 @@ extern t_result	*g_results;
 	printf("%s-> %s%s\n\n", COL_BLUE_B, name, COL_RESET);				\
 }
 
-# define PRINT_TEST_INPUT(num, input)									\
+# define PRINT_TEST_INPUT(num, input1, input2)							\
 {																		\
 	printf("%sTest n. %d:%s", COL_BLUE, num, COL_RESET);				\
-	if (input)															\
-		printf(" input -> \"%s\"", input);								\
+	if (input1 && input2)												\
+		printf(" s1 -> \"%s\" | s2 -> \"%s\"\n", input1, input2);		\
+	else if (input1)													\
+		printf(" input -> \"%s\"\n", input1);							\
 	printf("\n");														\
 }
 

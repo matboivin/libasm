@@ -11,6 +11,7 @@ _ft_write:
         push    rbp
         mov     rbp, rsp
 
+        xor     rax, rax
         mov     rax, MAC_SYSCALL_CONSTRUCT(WRITE)
         syscall
         cmp     rax, rdx

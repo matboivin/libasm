@@ -11,6 +11,7 @@ _ft_read:
         push    rbp
         mov     rbp, rsp
 
+        xor     rax, rax
         mov     rax, MAC_SYSCALL_CONSTRUCT(READ)
         syscall
         cmp     rax, rdx

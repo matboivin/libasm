@@ -11,7 +11,7 @@ _ft_strdup:
 
         push    rdi             ; saves the string
         call    _ft_strlen      ; gets the string length
-        inc     rax             ; increments for terminating null character
+        inc     rax             ; increments for terminating character
         mov     rdi, rax        ; moves length in rdi to malloc the result
 
         call    _malloc

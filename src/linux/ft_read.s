@@ -9,9 +9,10 @@ ft_read:
         push    rbp                     ; enter
         mov     rbp, rsp
 
+        xor     rax, rax                ; clears rax
         mov     rax, READ               ; moves syscall number in rax
         syscall
-        cmp     rax, rdx                ; checks whether return is equal to count
+        cmp     rax, rdx                ; checks if return is equal to count
         jne     error
 
 end:

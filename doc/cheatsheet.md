@@ -52,8 +52,8 @@ Other useful headers on Debian:
 ## Calling conventions
 
 <p align="center">
-  <img src="syscall-invocation.png" alt="register mapping library call" />
-  <img src="call-invocation.png" alt="register mapping library call using syscall" />
+  <img src="assets/syscall-invocation.png" alt="register mapping library call" />
+  <img src="assets/call-invocation.png" alt="register mapping library call using syscall" />
 </p>
 
 Images source: [Wikibooks: X86 Assembly/Interfacing with Linux](https://en.wikibooks.org/wiki/X86_Assembly/Interfacing_with_Linux)
@@ -92,7 +92,7 @@ Steps:
 ## Push and pop
 
 <p align="center">
-  <img src="stack-growth.png" alt="stack growth" />
+  <img src="assets/stack-growth.png" alt="stack growth" />
 </p>
 
 Image source: [asm.pdf](https://markfloryan.github.io/pdr/slides/reiss/asm.pdf)

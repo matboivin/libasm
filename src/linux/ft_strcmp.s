@@ -7,17 +7,17 @@ ft_strcmp:
 
         xor     rax, rax        ; clears rax
 
-loop:
+loop_cmp:
         cmp     BYTE [rdi], 0   ; checks for trailing null char in s1
-        je      end
+        je      done
         mov     al, [rdi]       ; moves s1 char in al
         sub     al, [rsi]       ; subtracts s2 char from al
         inc     rdi             ; increments s1
         inc     rsi             ; increments s2
         test    al, al          ; checks if zero (means characters are equal)
-        jz      loop
+        jz      loop_cmp
 
-end:
+done:
         mov     rsp, rbp        ; leave
         pop     rbp
         ret

@@ -22,7 +22,7 @@ _ft_strdup:
         pop     rsi             ; restores the string as src
         call    _ft_strcpy
 
-_end:
+_done:
         mov     rsp, rbp        ; leave
         pop     rbp
         ret
@@ -33,4 +33,4 @@ _error:
         call    ___error        ; gets the address of the errno variable
         pop     WORD [rax]      ; restores the error code as the value of errno
         xor     rax, rax        ; sets the return value to 0
-        jmp     _end
+        jmp     _done

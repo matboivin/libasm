@@ -8,16 +8,16 @@ _ft_strcpy:
         xor     rax, rax        ; clears rax
         mov     rax, rdi        ; returns pointer to dst
 
-_loop:
+_loop_cpy:
         cmp     BYTE [rsi], 0   ; checks src
-        je      _end
+        je      _done
         mov     dl, [rsi]       ; moves to dl the byte from src
         mov     [rdi], dl       ; moves to dst the byte from dl
         inc     rdi             ; increments dst
         inc     rsi             ; increments src
-        jmp     _loop
+        jmp     _loop_cpy
 
-_end:
+_done:
         mov     BYTE [rdi], 0   ; adds trailing null char
         mov     rsp, rbp        ; leave
         pop     rbp

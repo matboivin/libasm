@@ -17,7 +17,7 @@ _ft_read:
         cmp     rax, rdx
         jne     _error
 
-_end:
+_done:
         mov     rsp, rbp
         pop     rbp
         ret
@@ -28,4 +28,4 @@ _error:
         call    ___error
         pop     WORD [rax]
         mov     rax, ERROR_VAL
-        jmp     _end
+        jmp     _done

@@ -15,7 +15,7 @@ ft_read:
         cmp     rax, rdx                ; checks if return is equal to count
         jne     error
 
-end:
+done:
         mov     rsp, rbp                ; leave
         pop     rbp
         ret
@@ -26,4 +26,4 @@ error:
         call    __errno_location        ; gets the address of the errno variable
         pop     WORD [rax]              ; restores the error code as the value of errno
         mov     rax, ERROR_VAL          ; sets the return value to -1
-        jmp     end
+        jmp     done

@@ -33,6 +33,14 @@ Image source: [Program and Data Representation: Textbook](https://uva-cs.github.
 | RSI | Source Index register       | Pointer to data in the segment pointed to by the DS register                  | Source pointer for string operations      |
 | RDI | Destination Index register  | Pointer to data (or destination) in the segment pointed to by the ES register | Destination pointer for string operations |
 
+## RFLAGS
+
+<p align="center">
+  <img src="assets/rflags-register.png" alt="RFLAGS register" />
+</p>
+
+Image source: Le langage assembleur intel 64 bits, Sovanna Tan
+
 ## System calls numbers
 
 64-bit x86 system calls numbers:

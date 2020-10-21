@@ -24,6 +24,7 @@ Assembly
 - [x86 Instruction Set Reference](https://c9x.me/x86/)
 - [Does each PUSH instruction push a multiple of 8 bytes on x64?](https://stackoverflow.com/questions/40305965/does-each-push-instruction-push-a-multiple-of-8-bytes-on-x64/40312390#40312390)
 - [GCC insert a static library containing assembly into a dynamic lib](https://stackoverflow.com/questions/42986157/gcc-insert-a-static-library-containing-assembly-into-a-dynamic-lib)
+- [String Operations](https://pages.hep.wisc.edu/~pinghc/asm4.html)
 
 NASM
 
@@ -63,3 +64,6 @@ MacOs
 
 - [Simple assembly program on MacOS](https://blacksheephacks.pl/simple-assembly-program-on-macos/)
 - [basic assembly not working on Mac (x86_64+Lion)?](https://stackoverflow.com/questions/11179400/basic-assembly-not-working-on-mac-x86-64lion)
+
+Misc.  
+- [Create CI build and test](https://codereview.stackexchange.com/questions/180376/nasm-tutorial-linux-syscalls-64-bit-code-with-ci-build-and-test)

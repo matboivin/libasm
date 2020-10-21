@@ -1,64 +1,23 @@
-NAME		:=	libasm.a
+NAME := libasm.a
 
-SHELL		=	/bin/sh
-RM			=	/bin/rm
+SHELL = /bin/sh
+RM = /bin/rm
 
 .SUFFIXES:
 .SUFFIXES: .s .c .o .h
 
-# ********************************** PLATFORM ******************************** #
+# ********************************* S FILES ********************************** #
 
-OS_NAME = $(shell uname -s)
+SRC_FILES	=	ft_strcmp.s			\
+				ft_strcpy.s			\
+				ft_strdup.s			\
+				ft_strlen.s			\
+				ft_read.s			\
+				ft_write.s
 
-ifeq ($(OS_NAME), Linux)
-	OS = Linux
-endif
+SRC_BONUS	=	ft_list_size.s
 
-ifeq ($(OS_NAME), Darwin)
-	OS = MacOS
-endif
-
-# ******************************** CC AND FLAGS ****************************** #
-
-ASM			=	nasm
-
-ifeq ($(OS), Linux)
-	ASFLAGS = -f elf64
-endif
-
-ifeq ($(OS), MacOS)
-	ASFLAGS = -f macho64
-endif
-
-CC			=	clang
-AR			=	ar
-
-ARFLAGS		=	-rcs
-CFLAGS		=	-Wall -Wextra -Werror -g3
-IFLAGS		=	-I$(TEST_DIR)
-LFLAGS		=	-L. -lasm
-
-# ******************************* DIRS AND PATHS ***************************** #
-
-TEST_DIR	=	tests
-OBJ_DIR		=	obj
-
-ifeq ($(OS), Linux)
-	SRC_DIR = src/linux
-endif
-
-ifeq ($(OS), MacOS)
-	SRC_DIR = src/osx
-endif
-
-INC			=	$(addprefix $(TEST_DIR)/, $(INC_FILES))
-TEST		=	$(addprefix $(TEST_DIR)/, $(TEST_FILES))
-OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:%.s=%.o))
-OBJ_BONUS	=	$(addprefix $(OBJ_DIR)/, $(SRC_BONUS:%.s=%.o))
-
-VPATH		=	$(SRC_DIR) $(TEST_DIR)
-
-# ********************************** FILES *********************************** #
+# ******************************** TEST FILES ******************************** #
 
 INC_FILES	=	libasm.h libasm_tests.h
 
@@ -75,22 +34,67 @@ TEST_FILES	=	main.c				\
 				test_ft_write.c		\
 				test_ft_list_size.c
 
-SRC			=	ft_strcmp.s			\
-				ft_strcpy.s			\
-				ft_strdup.s			\
-				ft_strlen.s			\
-				ft_read.s			\
-				ft_write.s
+# ********************************* OBJECTS ********************************** #
 
-SRC_BONUS	=	ft_list_size.s
+OBJ_FILES = $(SRC_FILES:%.s=%.o)
+OBJ_BONUS_FILES = $(SRC_BONUS:%.s=%.o)
+
+# ********************************* PLATFORM ********************************* #
+
+OS_NAME = $(shell uname -s)
+
+ifeq ($(OS_NAME), Linux)
+	OS = Linux
+endif
+
+ifeq ($(OS_NAME), Darwin)
+	OS = MacOS
+endif
+
+# ******************************* DIRS AND PATHS ***************************** #
+
+ifeq ($(OS), Linux)
+	SRC_DIR = src/linux
+endif
+
+ifeq ($(OS), MacOS)
+	SRC_DIR = src/osx
+endif
+
+TEST_DIR	=	tests
+OBJ_DIR		=	obj
+
+INC			=	$(addprefix $(TEST_DIR)/, $(INC_FILES))
+TEST		=	$(addprefix $(TEST_DIR)/, $(TEST_FILES))
+OBJ			=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
+OBJ_BONUS	=	$(addprefix $(OBJ_DIR)/, $(OBJ_BONUS_FILES))
+
+VPATH		=	$(SRC_DIR) $(TEST_DIR)
+
+# *************************** COMPILING AND FLAGS **************************** #
+
+AS = nasm
+
+ifeq ($(OS), Linux)
+	ASFLAGS = -f elf64
+endif
+
+ifeq ($(OS), MacOS)
+	ASFLAGS = -f macho64
+endif
+
+CC = clang
+AR = ar
+
+ARFLAGS = -rcs
+CFLAGS = -Wall -Wextra -Werror -g3
+CPPFLAGS = -I$(TEST_DIR)
+LDFLAGS = -L.
+LDLIBS = -lasm
 
 # ********************************** RULES *********************************** #
 
 all: $(NAME)
-
-$(NAME): $(OBJ_DIR) $(OBJ)
-	@$(AR) $(ARFLAGS) -o $@ $(OBJ)
-	@echo "\nOK\t\t$(NAME) is ready"
 
 # OBJ DIR #
 
@@ -102,7 +106,11 @@ $(OBJ_DIR):
 
 $(OBJ_DIR)/%.o : %.s
 	@echo "\r\033[KCompiling\t$< \c"
-	@$(ASM) $(ASFLAGS) $< -o $@
+	@$(AS) $(ASFLAGS) $< -o $@
+
+$(NAME): $(OBJ_DIR) $(OBJ)
+	@$(AR) $(ARFLAGS) -o $@ $(OBJ)
+	@echo "\nOK\t\t$(NAME) is ready"
 
 # BONUS #
 
@@ -116,14 +124,10 @@ show:
 	@echo "OS: $(OS_NAME)"
 	@echo "SRC_DIR: $(SRC_DIR)"
 
-create_tests: $(NAME)
-	@$(CC) $(CFLAGS) $(IFLAGS) $(TEST) -o test_libasm $(LFLAGS)
-
-debug: create_tests
-	@./test_libasm
-
-debug_bonus: debug
-	@./test_libasm --bonus
+debug: $(NAME)
+	@$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o test_libasm
+	@echo "\nOK\t\tCreated test executable\n"
+	@./test_libasm -h
 
 # CLEAN #
 
@@ -132,9 +136,9 @@ clean:
 	@echo "Cleaned\t\tobject files"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) -f $(NAME)
 	@echo "Removed\t\t$(NAME)"
 
 re: fclean all
 
-.PHONY: all bonus show create_tests debug debug_bonus clean fclean re
+.PHONY: all bonus show debug clean fclean re

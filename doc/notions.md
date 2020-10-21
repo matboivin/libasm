@@ -23,6 +23,7 @@ Assembly
 - [Wikibooks: X86 Assembly/X86 Architecture](https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture)
 - [x86 Instruction Set Reference](https://c9x.me/x86/)
 - [Does each PUSH instruction push a multiple of 8 bytes on x64?](https://stackoverflow.com/questions/40305965/does-each-push-instruction-push-a-multiple-of-8-bytes-on-x64/40312390#40312390)
+- [GCC insert a static library containing assembly into a dynamic lib](https://stackoverflow.com/questions/42986157/gcc-insert-a-static-library-containing-assembly-into-a-dynamic-lib)
 
 NASM
 

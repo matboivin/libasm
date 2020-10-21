@@ -13,7 +13,8 @@ SRC_FILES	=	ft_strcmp.s			\
 				ft_strdup.s			\
 				ft_strlen.s			\
 				ft_read.s			\
-				ft_write.s
+				ft_write.s			\
+				libasm.s
 
 SRC_BONUS	=	ft_list_size.s
 

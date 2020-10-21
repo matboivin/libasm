@@ -1,5 +1,4 @@
-%define READ 0
-%define ERROR_VAL -1
+%include "src/linux/libasm.s"
 
         section .text
         global  ft_read

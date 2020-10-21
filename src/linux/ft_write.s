@@ -1,5 +1,4 @@
-%define WRITE 1
-%define ERROR_VAL -1
+%include "src/linux/libasm.s"
 
         section .text
         global  ft_write

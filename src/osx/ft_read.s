@@ -1,7 +1,4 @@
-%define MAC_SYSCALL_CLASS_UNIX 0x2000000
-%define MAC_SYSCALL_CONSTRUCT(n) (MAC_SYSCALL_CLASS_UNIX | n)
-%define READ 3
-%define ERROR_VAL -1
+%include "src/osx/libasm.s"
 
         section .text
         global  _ft_read

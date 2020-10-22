@@ -8,12 +8,14 @@ RM = /bin/rm
 
 # ********************************* S FILES ********************************** #
 
-SRC_FILES	=	ft_strcmp.s			\
-				ft_strcpy.s			\
-				ft_strdup.s			\
-				ft_strlen.s			\
-				ft_read.s			\
-				ft_write.s			\
+SRC_FILES	=	ft_strcmp.s				\
+				ft_strcpy.s				\
+				ft_strdup.s				\
+				ft_strlen.s				\
+				ft_read.s				\
+				ft_write.s				\
+				ft_list_size.s			\
+				ft_list_push_front.s	\
 				libasm.s
 
 SRC_BONUS	=	ft_list_size.s
@@ -22,17 +24,17 @@ SRC_BONUS	=	ft_list_size.s
 
 INC_FILES	=	libasm.h libasm_tests.h
 
-TEST_FILES	=	main.c				\
-				launch_tests.c		\
-				result_count.c		\
-				check_errno_val.c	\
-				check_return.c		\
-				test_ft_strcmp.c	\
-				test_ft_strcpy.c	\
-				test_ft_strdup.c	\
-				test_ft_strlen.c	\
-				test_ft_read.c		\
-				test_ft_write.c		\
+TEST_FILES	=	main.c					\
+				launch_tests.c			\
+				result_count.c			\
+				check_errno_val.c		\
+				check_return.c			\
+				test_ft_strcmp.c		\
+				test_ft_strcpy.c		\
+				test_ft_strdup.c		\
+				test_ft_strlen.c		\
+				test_ft_read.c			\
+				test_ft_write.c			\
 				test_ft_list_size.c
 
 # ********************************* OBJECTS ********************************** #

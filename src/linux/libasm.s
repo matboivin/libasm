@@ -1,5 +1,5 @@
-%ifndef LIBASM
-    %define LIBASM
+%ifndef LIBASM_LINUX_INC
+    %define LIBASM_LINUX_INC
 
     %define ERROR_VAL -1
     %define READ 0

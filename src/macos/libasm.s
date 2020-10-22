@@ -1,5 +1,5 @@
-%ifndef LIBASM
-    %define LIBASM
+%ifndef LIBASM_MACOS_INC
+    %define LIBASM_MACOS_INC
 
     %define ERROR_VAL -1
     %define MAC_SYSCALL_CLASS_UNIX 0x2000000

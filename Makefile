@@ -61,7 +61,7 @@ ifeq ($(OS), Linux)
 endif
 
 ifeq ($(OS), MacOS)
-	SRC_DIR = src/osx
+	SRC_DIR = src/macos
 endif
 
 TEST_DIR	=	tests

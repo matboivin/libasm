@@ -1,15 +1,15 @@
-%include "src/osx/libasm.s"
+%include "src/macos/libasm.s"
 
         section .text
-        global  _ft_read
+        global  _ft_write
         extern  ___error
 
-_ft_read:
+_ft_write:
         push    rbp
         mov     rbp, rsp
 
         xor     rax, rax
-        mov     rax, MAC_SYSCALL_CONSTRUCT(READ)
+        mov     rax, MAC_SYSCALL_CONSTRUCT(WRITE)
         syscall
         cmp     rax, rdx
         jne     _error

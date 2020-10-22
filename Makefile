@@ -22,7 +22,7 @@ SRC_BONUS	=	ft_list_size.s
 
 # ******************************** TEST FILES ******************************** #
 
-INC_FILES	=	libasm.h libasm_tests.h
+INC_FILES	=	libasm.h libasm_list.h libasm_tests.h
 
 TEST_FILES	=	main.c					\
 				launch_tests.c			\

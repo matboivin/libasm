@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 19:27:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/22 17:48:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,12 @@ extern t_result	*g_results;
 
 # define PRINT_TEST_OK(void)											\
 {																		\
-	printf("%s-> OK%s\n\n", COL_GREEN_B, COL_RESET);					\
+	printf("%s-> [OK]%s\n\n", COL_GREEN_B, COL_RESET);					\
 }
 
 # define PRINT_TEST_KO(void)											\
 {																		\
-	printf("%s-> KO%s\n\n", COL_RED_B, COL_RESET);						\
+	printf("%s-> [KO]%s\n\n", COL_RED_B, COL_RESET);					\
 }
 
 # define PRINT_ERRNO_VAL(func_name, ori_errno, ft_errno)				\
@@ -128,10 +128,11 @@ extern t_result	*g_results;
 {																		\
 	printf("%d/%d passed tests\n", passed, total);						\
 	if (passed == total)												\
-		printf("%s-> All tests passed%s\n\n", COL_GREEN_B, COL_RESET);	\
+		printf("%s-> [OK] All tests passed%s\n\n",						\
+		COL_GREEN_B, COL_RESET);										\
 	else																\
 		printf(															\
-			"%s-> %d tests failed%s\n\n",								\
+			"%s-> [KO] %d tests failed%s\n\n",							\
 			COL_RED_B, (total - passed), COL_RESET);					\
 	PRINT_SEP();														\
 }

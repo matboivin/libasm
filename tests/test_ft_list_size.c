@@ -6,61 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 19:08:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 19:22:05 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
-
-t_list		*ft_list_new(void *p_data)
-{
-	t_list	*result;
-
-	result = malloc(sizeof(t_list));
-	if (!result)
-		return (NULL);
-	result->data = p_data;
-	result->next = NULL;
-	return (result);
-}
-
-void		ft_list_del(t_list **node)
-{
-	t_list	*cursor;
-	t_list	*next_list;
-
-	if (!node)
-		return ;
-	if (*node)
-	{
-		cursor = *node;
-		while (cursor)
-		{
-			next_list = cursor->next;
-			free(cursor->data);
-			free(cursor);
-			cursor = next_list;
-		}
-		*node = NULL;
-	}
-}
-
-void		ft_list_push_back(t_list **head, t_list *new_node)
-{
-	t_list	*cursor;
-
-	if (!head || !new_node)
-		return ;
-	if (*head)
-	{
-		cursor = *head;
-		while (cursor->next)
-			cursor = cursor->next;
-		cursor->next = new_node;
-	}
-	else
-		*head = new_node;
-}
 
 static int	ft_list_size_c(t_list *lst)
 {
@@ -102,9 +52,10 @@ void		test_ft_list_size(void)
 	compare_list_sizes(dummy_list);
 	ft_list_push_back(&dummy_list, ft_list_new(TEST_STR_00));
 	compare_list_sizes(dummy_list);
-	ft_list_push_back(&dummy_list, ft_list_new(TEST_STR_01));
+	ft_list_push_back(&dummy_list, ft_list_new(TEST_STR_00));
 	compare_list_sizes(dummy_list);
 	ft_list_push_back(&dummy_list, ft_list_new(TEST_STR_00));
 	compare_list_sizes(dummy_list);
+	ft_list_del(&dummy_list);
 	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
 }

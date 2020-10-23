@@ -8,14 +8,14 @@ RM = /bin/rm
 
 # ********************************* S FILES ********************************** #
 
-SRC_FILES	=	ft_strcmp.s				\
-				ft_strcpy.s				\
-				ft_strdup.s				\
-				ft_strlen.s				\
-				ft_read.s				\
-				ft_write.s				\
-				ft_list_size.s			\
-				ft_list_push_front.s	\
+SRC_FILES	=	ft_strcmp.s					\
+				ft_strcpy.s					\
+				ft_strdup.s					\
+				ft_strlen.s					\
+				ft_read.s					\
+				ft_write.s					\
+				ft_list_size.s				\
+				ft_list_push_front.s		\
 				libasm.s
 
 SRC_BONUS	=	ft_list_size.s
@@ -24,18 +24,20 @@ SRC_BONUS	=	ft_list_size.s
 
 INC_FILES	=	libasm.h libasm_list.h libasm_tests.h
 
-TEST_FILES	=	main.c					\
-				launch_tests.c			\
-				result_count.c			\
-				check_errno_val.c		\
-				check_return.c			\
-				test_ft_strcmp.c		\
-				test_ft_strcpy.c		\
-				test_ft_strdup.c		\
-				test_ft_strlen.c		\
-				test_ft_read.c			\
-				test_ft_write.c			\
-				test_ft_list_size.c
+TEST_FILES	=	main.c						\
+				launch_tests.c				\
+				result_count.c				\
+				check_errno_val.c			\
+				check_return.c				\
+				test_ft_strcmp.c			\
+				test_ft_strcpy.c			\
+				test_ft_strdup.c			\
+				test_ft_strlen.c			\
+				test_ft_read.c				\
+				test_ft_write.c				\
+				test_ft_list_size.c			\
+				test_ft_list_push_front.c	\
+				test_utils.c
 
 # ********************************* OBJECTS ********************************** #
 
@@ -90,7 +92,7 @@ CC = clang
 AR = ar
 
 ARFLAGS = -rcs
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 CPPFLAGS = -I$(TEST_DIR)
 LDFLAGS = -L.
 LDLIBS = -lasm
@@ -128,14 +130,14 @@ show:
 	@echo "SRC_DIR: $(SRC_DIR)"
 
 debug: $(NAME)
-	@$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o test_libasm
+	@$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o libasm_tester
 	@echo "\nOK\t\tCreated test executable\n"
-	@./test_libasm -h
+	@./libasm_tester -h
 
 # CLEAN #
 
 clean:
-	@$(RM) -rf $(OBJ_DIR) test_libasm
+	@$(RM) -rf $(OBJ_DIR) libasm_tester
 	@echo "Cleaned\t\tobject files"
 
 fclean: clean

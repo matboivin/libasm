@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 18:56:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 20:58:14 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_result	*g_results;
 
 static void	print_usage(void)
 {
-	printf("Usage: ./test_libasm [-h | --bonus]\n\noptional arguments:\n");
+	printf("Usage: ./libasm_tester [-h | --bonus]\n\noptional arguments:\n");
 	printf("  -h       print this usage message\n");
 	printf("  --bonus  run both mandatory and bonus tests\n");
 	exit(EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 19:05:18 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 20:53:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@
 # define TEST_STR_EMPTY ""
 # define TEST_STR_00 "Hello World!"
 # define TEST_STR_01 "a     bcd ef"
-# define TEST_STR_02 "Hell"
+# define TEST_STR_02 "Hell "
+# define TEST_STR_03 "A     BCD EF"
+# define TEST_STR_04 "FOO"
+# define TEST_STR_05 "bar"
 
 /*
 ** Result counter
@@ -144,15 +147,6 @@ extern t_result	*g_results;
 }
 
 /*
-** Result counter
-*/
-
-t_result	*malloc_result(void);
-void		free_result(t_result *to_free);
-void		check_return(bool condition);
-void		check_errno_val(char *func_name, int ori_errno, int ft_errno);
-
-/*
 ** Test mandatory functions
 */
 
@@ -170,5 +164,17 @@ void		test_ft_strlen(void);
 
 void		launch_bonus_tests(void);
 void		test_ft_list_size(void);
+void		test_ft_list_push_front(void);
+
+/*
+** Test utils
+*/
+
+t_result	*malloc_result(void);
+void		free_result(t_result *to_free);
+void		check_return(bool condition);
+void		check_errno_val(char *func_name, int ori_errno, int ft_errno);
+char		*ft_strnew(size_t size);
+void		ft_strdel(char **to_free);
 
 #endif

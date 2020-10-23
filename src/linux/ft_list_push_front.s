@@ -9,9 +9,9 @@ ft_list_push_front:
 
         xor     rax, rax                ; clears rax
 
-        cmp     BYTE [rdi], 0           ; checks if null list
+        cmp     rdi, 0                  ; checks if list is null
         je      done
-        cmp     BYTE [rsi], 0           ; checks if null new node
+        cmp     BYTE [rsi], 0           ; checks if new node is null
         je      done
 
         mov     rax, [rdi]              ; store *lst in rax

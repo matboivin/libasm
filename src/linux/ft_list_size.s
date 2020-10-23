@@ -11,7 +11,7 @@ ft_list_size:
         xor     rcx, rcx                ; clears rcx (count)
 
 while_node:
-        cmp     rdi, 0                  ; checks if null
+        cmp     rdi, 0                  ; checks if list is null
         je      done
         inc     rcx                     ; increments count by 1
         mov     rdi, [rdi + NODE_SIZE]  ; moves to next node

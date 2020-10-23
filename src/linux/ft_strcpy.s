@@ -19,6 +19,7 @@ loop_cpy:
 
 done:
         mov     BYTE [rdi], 0   ; adds trailing null char
+
         mov     rsp, rbp        ; leave
         pop     rbp
         ret

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/22 18:03:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 19:08:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,15 @@ static int	ft_list_size_c(t_list *lst)
 static void	compare_list_sizes(t_list *test_lst)
 {
 	int		c_ret;
-	//int		asm_ret;
+	int		asm_ret;
 
 	g_results->test_num++;
 	PRINT_TEST_INPUT(g_results->test_num, NULL, NULL);
 	c_ret = ft_list_size_c(test_lst);
-	//asm_ret = ft_list_size(test_lst);
-	printf("C function: list size is %d\n", c_ret);
-	//printf("ASM function: list size is %d\n", asm_ret);
-	//check_return(c_ret == asm_ret);
+	asm_ret = ft_list_size(test_lst);
+	printf("C function:\tlist size is %d\n", c_ret);
+	printf("ASM function:\tlist size is %d\n", asm_ret);
+	check_return(c_ret == asm_ret);
 }
 
 void		test_ft_list_size(void)
@@ -97,9 +97,10 @@ void		test_ft_list_size(void)
 	t_list	*dummy_list;
 
 	dummy_list = NULL;
-	ft_list_push_back(&dummy_list, ft_list_new(TEST_STR_00));
 	g_results->test_num = 0;
 	PRINT_TEST_NAME("FT_LIST_SIZE");
+	compare_list_sizes(dummy_list);
+	ft_list_push_back(&dummy_list, ft_list_new(TEST_STR_00));
 	compare_list_sizes(dummy_list);
 	ft_list_push_back(&dummy_list, ft_list_new(TEST_STR_01));
 	compare_list_sizes(dummy_list);

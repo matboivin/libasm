@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:53:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 18:59:38 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void		test_ft_strlen(void)
 	PRINT_TEST_NAME("FT_STRLEN");
 	compare_lenghts(TEST_STR_EMPTY);
 	compare_lenghts(TEST_STR_00);
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	compare_lenghts(TEST_STR_01);
+	PRINT_SEP();
 }

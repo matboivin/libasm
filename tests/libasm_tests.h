@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/22 17:48:48 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 19:05:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,12 @@ extern t_result	*g_results;
 	PRINT_SEP();														\
 }
 
+# define PRINT_BONUS(void)												\
+{																		\
+	printf("%40sBONUS TESTS%s\n\n", COL_BLUE_B, COL_RESET);				\
+	PRINT_SEP();														\
+}
+
 # define PRINT_END(void)												\
 {																		\
 	printf("%40sEND OF TESTS%s\n\n", COL_BLUE_B, COL_RESET);			\
@@ -95,9 +101,9 @@ extern t_result	*g_results;
 {																		\
 	printf("%sTest n. %d:%s", COL_BLUE, num, COL_RESET);				\
 	if (input1 && input2)												\
-		printf(" s1 -> \"%s\" | s2 -> \"%s\"\n", input1, input2);		\
+		printf(" s1 -> \"%s\" | s2 -> \"%s\"", input1, input2);		\
 	else if (input1)													\
-		printf(" input -> \"%s\"\n", input1);							\
+		printf(" input -> \"%s\"", input1);							\
 	printf("\n");														\
 }
 

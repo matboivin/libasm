@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:53:16 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 18:59:17 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void		test_ft_read(void)
 	compare_read_ret(buf, TEST_FD_PATH, TEST_NEG);
 	compare_read_ret(buf, TEST_FD_PATH, DEFAULT_VALUE);
 	compare_read_ret(buf, TEST_FD_PATH, TEST_SIZE);
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	PRINT_SEP();
 }

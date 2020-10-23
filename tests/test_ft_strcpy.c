@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:53:29 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 19:04:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	compare_copies(char *s1, const char *s2)
 		exit(EXIT_FAILURE);
 	strcpy_ret = strcpy(dst, src);
 	ft_ret = ft_strcpy(dst, src);
-	printf("dst: \"%s\" | src: \"%s\"\n", s1, s2);
 	printf("strcpy:\t\t\"%s\"\n", strcpy_ret);
 	printf("ft_strcpy:\t\"%s\"\n", ft_ret);
 	check = strcmp(strcpy_ret, ft_ret);
@@ -44,5 +43,5 @@ void		test_ft_strcpy(void)
 	compare_copies(TEST_STR_EMPTY, TEST_STR_00);
 	compare_copies(TEST_STR_01, TEST_STR_00);
 	compare_copies(TEST_STR_00, TEST_STR_01);
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	PRINT_SEP();
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 19:30:58 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/23 18:59:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void		test_ft_write(void)
 	compare_write_ret(STDOUT_FILENO, TEST_STR_00, TEST_NEG);
 	compare_write_ret(STDOUT_FILENO, TEST_STR_00, DEFAULT_VALUE);
 	compare_write_ret(STDOUT_FILENO, TEST_STR_00, strlen(TEST_STR_00));
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	PRINT_SEP();
 }

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 19:22:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 13:56:50 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	compare_list_sizes(t_list *test_lst)
 
 	g_results->test_num++;
 	PRINT_TEST_INPUT(g_results->test_num, NULL, NULL);
+	PRINT_TEST_LIST(test_lst);
 	c_ret = ft_list_size_c(test_lst);
 	asm_ret = ft_list_size(test_lst);
 	printf("C function:\tlist size is %d\n", c_ret);

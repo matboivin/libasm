@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/22 17:59:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 13:58:01 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ void				ft_list_remove_if(t_list **lst, void *data_ref);
 t_list				*ft_list_new(void *p_data);
 void				ft_list_del(t_list **node);
 void				ft_list_push_back(t_list **head, t_list *new_node);
+void				ft_list_print(t_list *lst);
+void				ft_list_remove_if_c(t_list **lst, void *data_ref);
 
 #endif

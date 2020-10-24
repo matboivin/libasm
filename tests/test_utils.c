@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 19:37:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 13:50:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,22 @@ void		ft_list_push_back(t_list **head, t_list *new_node)
 	}
 	else
 		*head = new_node;
+}
+
+void		ft_list_print(t_list *lst)
+{
+	int		i;
+
+	if (lst)
+	{
+		i = 1;
+		while (lst)
+		{
+			printf("node %d -> data: \"%s\"\n", i, lst->data);
+			lst = lst->next;
+			i++;
+		}
+	}
+	else
+		printf("NULL\n");
 }

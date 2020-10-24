@@ -15,7 +15,7 @@ ft_list_push_front:
         je      done
 
         mov     rax, [rdi]              ; store *lst in rax
-        mov     [rsi + NODE_SIZE], rax  ; new node next is now *lst
+        mov     [rsi + NODE_SIZE], rax  ; new_node->next is now head of list
         mov     [rax], rsi              ; head of list is now the new node
 
 done:

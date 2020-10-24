@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 20:53:34 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/24 13:33:34 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,23 @@ extern t_result	*g_results;
 {																		\
 	printf("%sTest n. %d:%s", COL_BLUE, num, COL_RESET);				\
 	if (input1 && input2)												\
-		printf(" s1 -> \"%s\" | s2 -> \"%s\"", input1, input2);		\
+		printf(" s1 -> \"%s\" | s2 -> \"%s\"", input1, input2);			\
 	else if (input1)													\
-		printf(" input -> \"%s\"", input1);							\
+		printf(" input -> \"%s\"", input1);								\
+	printf("\n");														\
+}
+
+# define PRINT_TEST_LIST(test_lst)										\
+{																		\
+	printf("Input test list:\n");										\
+	ft_list_print(test_lst);											\
+	printf("\n");														\
+}
+
+# define PRINT_TEST_NEW_ELEM(new_elem)									\
+{																		\
+	printf("Input new elem:\n");										\
+	ft_list_print(new_elem);											\
 	printf("\n");														\
 }
 

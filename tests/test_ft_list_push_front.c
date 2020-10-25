@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 19:46:37 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 20:21:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ void		test_ft_list_push_front(void)
 	PRINT_TEST_NAME("FT_LIST_PUSH_FRONT");
 	test_push_front_00();
 	test_push_front_01();
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	PRINT_SEP();
 }

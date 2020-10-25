@@ -6,19 +6,17 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 17:21:17 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 18:56:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 20:41:00 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 static int	ft_isspace(int c)
 {
 	return ((c == ' ') || (c == '\f') || (c == '\t') \
 		|| (c == '\v') || (c == '\n') || (c == '\r'));
 }
-
-/*
-** This function returns the necessary value for base conversion
-*/
 
 static int		conv_val(int c)
 {
@@ -30,16 +28,6 @@ static int		conv_val(int c)
 		return (c - 'A' + 10);
 	return (0);
 }
-
-/*
-** This function checks if c is present in base
-**
-** c: A character
-** base: The given base
-**
-** returns: true if c is present in base
-**          false otherwise
-*/
 
 static int		ft_isbase(int c, int base)
 {
@@ -57,17 +45,7 @@ static int		ft_isbase(int c, int base)
 	return (0);
 }
 
-/*
-** Recoded atoi libc function: Converts a string to an integer (base 10)
-**
-** s: A string representation of a number
-** base: An integer (2 to 16)
-**
-** returns: The converted number as an int value
-**          0 otherwise
-*/
-
-int				ft_atoi_base(const char *s, int base)
+static int		ft_atoi_base(const char *str, int str_base)
 {
 	int			result;
 	int			sign;
@@ -85,4 +63,13 @@ int				ft_atoi_base(const char *s, int base)
 	while (*s && ft_isbase(*s, base))
 		result = (result * base) + conv_val(*(s++));
 	return (sign * result);
+}
+
+int		main(void)
+{
+	printf("%d\n", ft_atoi_base("42", 2));
+	printf("%d\n", ft_atoi_base("42", 8));
+	printf("%d\n", ft_atoi_base("42", 10));
+	printf("%d\n", ft_atoi_base("42", 16));
+	return (0);
 }

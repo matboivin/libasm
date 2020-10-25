@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 16:32:11 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 20:00:11 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 22:33:36 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 static void	ft_list_sort_c(t_list **begin_list, int (*cmp)())
 {
-	t_list	*cursor;
-	t_list	*next_node;
+	t_list	*a;
+	t_list	*next_list;
 	t_list	*next_data;
 
 	if (!begin_list || !cmp)
 		return ;
 	if (*begin_list)
 	{
-		cursor = *begin_list;
-		while (cursor)
+		a = *begin_list;
+		while (a)
 		{
-			next_node = cursor->next;
-			while (next_node)
+			next_list = a->next;
+			while (next_list)
 			{
-				if (cmp(cursor->data, next_node->data) > 0)
+				if (cmp(a->data, next_list->data) > 0)
 				{
-					next_data = cursor->data;
-					cursor->data = next_node->data;
-					next_node->data = next_data;
+					next_data = a->data;
+					a->data = next_list->data;
+					next_list->data = next_data;
 				}
-				next_node = next_node->next;
+				next_list = next_list->next;
 			}
-			cursor = cursor->next;
+			a = a->next;
 		}
 	}
 }
@@ -88,5 +88,5 @@ void		test_ft_list_sort(void)
 	PRINT_TEST_NAME("FT_LIST_SORT");
 	test_sort_00();
 	test_sort_01();
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	PRINT_SEP();
 }

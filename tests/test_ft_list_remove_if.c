@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 16:32:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 20:09:30 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 20:21:25 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,5 @@ void		test_ft_list_remove_if(void)
 	PRINT_TEST_NAME("FT_LIST_REMOVE_IF");
 	test_remove_if_00();
 	test_remove_if_01();
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	PRINT_SEP();
 }

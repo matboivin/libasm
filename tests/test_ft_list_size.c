@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 20:03:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 20:21:29 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void		test_ft_list_size(void)
 	ft_list_push_back(&test_lst, TEST_STR_05);
 	compare_list_sizes(test_lst, 3);
 	ft_list_del(&test_lst);
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	PRINT_SEP();
 }

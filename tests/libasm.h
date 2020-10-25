@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:40:11 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 20:40:59 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void				ft_list_push_front(t_list **begin_list, void *data);
 void				ft_list_sort(t_list **begin_list, int (*cmp)());
 void				ft_list_remove_if(
 	t_list **begin_list, void *data_ref, int (*cmp)());
-int					ft_atoi_base(const char *s, int base);
+int					ft_atoi_base(const char *str, int str_base);
 
 #endif

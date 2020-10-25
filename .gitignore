@@ -53,8 +53,7 @@ dkms.conf
 
 .gdb_history
 peda-session-test_libasm.txt
-test_libasm
+libasm_tester
 test_disass
 check_size
 tests/checks/output/
-tests/checks/src/

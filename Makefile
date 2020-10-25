@@ -15,7 +15,6 @@ SRC_FILES	=	ft_strcmp.s					\
 				ft_read.s					\
 				ft_write.s					\
 				ft_list_size.s				\
-				ft_list_push_front.s		\
 				libasm.s
 
 SRC_BONUS	=	ft_list_size.s

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 16:32:14 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 20:21:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 23:31:26 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	test_remove_if_00(void)
 	ft_list_push_back(&test_lst, TEST_STR_04);
 	ft_list_push_back(&test_lst, TEST_STR_05);
 	PRINT_TEST_LIST(test_lst);
-	printf("Remove if data == \"%s\t\n\n", TEST_NODE_3);
+	printf("Remove if data == \"%s\"\n\n", TEST_NODE_3);
 	print_ref(ref, 2);
 	printf("\nASM result:\n");
 	ft_list_remove_if_c(&test_lst, TEST_STR_05, data_cmp);
@@ -75,7 +75,7 @@ static void	test_remove_if_01(void)
 	ft_list_push_back(&test_lst, TEST_NODE_3);
 	ft_list_push_back(&test_lst, TEST_NODE_4);
 	PRINT_TEST_LIST(test_lst);
-	printf("Remove if data == \"%s\t\n\n", TEST_NODE_3);
+	printf("Remove if data == \"%s\"\n\n", TEST_NODE_3);
 	print_ref(ref, 3);
 	printf("\nASM result:\n");
 	ft_list_remove_if_c(&test_lst, TEST_NODE_3, data_cmp);

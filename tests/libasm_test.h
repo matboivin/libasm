@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:42:05 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 20:01:19 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@
 # define TEST_STR_03 "A     BCD EF"
 # define TEST_STR_04 "FOO"
 # define TEST_STR_05 "bar"
+
+# define TEST_NODE_1 "1ST INPUT"
+# define TEST_NODE_2 "2ND INPUT"
+# define TEST_NODE_3 "3RD INPUT"
+# define TEST_NODE_4 "4TH INPUT"
 
 /*
 ** Output formatting
@@ -104,20 +109,6 @@
 	printf("Input test list:\n");										\
 	ft_list_print(test_lst);											\
 	printf("\n");														\
-}
-
-# define PRINT_TEST_NEW_ELEM(new_elem)									\
-{																		\
-	printf("Input new elem:\n");										\
-	ft_list_print(new_elem);											\
-	printf("\n");														\
-}
-
-# define PRINT_TEST_TO_CHECK(void)										\
-{																		\
-	printf(																\
-		"%s-> [TO CHECK] This test must be verified by human.%s\n\n",	\
-		COL_YELLOW_B, COL_RESET);										\
 }
 
 # define PRINT_TEST_OK(void)											\
@@ -207,6 +198,8 @@ t_list			*ft_list_new(void *p_data);
 void			ft_list_del(t_list **begin_list);
 void			ft_list_push_back(t_list **begin_list, void *data);
 void			ft_list_print(t_list *node);
+int				ft_list_cmp(t_list *test_lst, char **ref);
 int				data_cmp(void *data, void *data_ref);
+void			print_ref(char **ref, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:42:49 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 19:36:42 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,27 @@ void			ft_list_print(t_list *node)
 	}
 	else
 		printf("NULL\n");
+}
+
+/*
+** Returns 0 if list are the same
+*/
+
+int				ft_list_cmp(t_list *test_lst, char **ref)
+{
+	int			i;
+
+	if (!test_lst || !ref)
+		return (1);
+	i = 0;
+	while (test_lst && ref[i])
+	{
+		if (test_lst-> data != ref[i])
+			return (1);
+		test_lst = test_lst->next;
+		i++;
+	}
+	return (0);
 }
 
 /*

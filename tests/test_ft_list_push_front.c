@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:08:54 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 19:46:37 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,51 +26,41 @@ static void	ft_list_push_front_c(t_list **begin_list, void *data)
 
 static void	test_push_front_00(void)
 {
-	t_list	*test_lst[2];
+	char	*ref[4] = { TEST_NODE_4, TEST_NODE_3, TEST_NODE_2, TEST_NODE_1 };
+	t_list	*test_lst;
 
-	bzero(&test_lst, sizeof(test_lst));
 	g_results->test_num++;
 	PRINT_TEST_INPUT(g_results->test_num, NULL, NULL);
-	printf("C function:\n");
-	ft_list_push_front_c(&test_lst[0], "C: 1ST INPUT");
-	ft_list_push_front_c(&test_lst[0], "C: 2ND INPUT");
-	ft_list_push_front_c(&test_lst[0], "C: 3RD INPUT");
-	ft_list_push_front_c(&test_lst[0], "C: 4TH INPUT");
-	ft_list_print(test_lst[0]);
-	printf("\nASM function:\n");
-	ft_list_push_front_c(&test_lst[1], "ASM: 1ST INPUT");
-	ft_list_push_front_c(&test_lst[1], "ASM: 2ND INPUT");
-	ft_list_push_front_c(&test_lst[1], "ASM: 3RD INPUT");
-	ft_list_push_front_c(&test_lst[1], "ASM: 4TH INPUT");
-	ft_list_print(test_lst[1]);
-	printf("\n");
-	ft_list_del(&test_lst[0]);
-	ft_list_del(&test_lst[1]);
-	PRINT_TEST_TO_CHECK();
+	print_ref(ref, 4);
+	printf("\nASM result:\n");
+	bzero(&test_lst, sizeof(test_lst));
+	ft_list_push_front_c(&test_lst, TEST_NODE_1);
+	ft_list_push_front_c(&test_lst, TEST_NODE_2);
+	ft_list_push_front_c(&test_lst, TEST_NODE_3);
+	ft_list_push_front_c(&test_lst, TEST_NODE_4);
+	ft_list_print(test_lst);
+	check_return(ft_list_cmp(test_lst, ref) == 0);
+	ft_list_del(&test_lst);
 }
 
 static void	test_push_front_01(void)
 {
-	t_list	*test_lst[2];
+	char	*ref[5] = { "E", "D", "C", "B", "A" };
+	t_list	*test_lst;
 
-	bzero(&test_lst, sizeof(test_lst));
 	g_results->test_num++;
 	PRINT_TEST_INPUT(g_results->test_num, NULL, NULL);
-	printf("C function:\n");
-	ft_list_push_front_c(&test_lst[0], "C: A");
-	ft_list_push_front_c(&test_lst[0], "C: B");
-	ft_list_print(test_lst[0]);
-	printf("\nASM function:\n");
-	ft_list_push_front_c(&test_lst[1], "ASM: C");
-	ft_list_push_front_c(&test_lst[1], "ASM: D");
-	ft_list_push_front_c(&test_lst[1], "ASM: E");
-	ft_list_push_front_c(&test_lst[1], "ASM: F");
-	ft_list_push_front_c(&test_lst[1], "ASM: G");
-	ft_list_print(test_lst[1]);
-	printf("\n");
-	ft_list_del(&test_lst[0]);
-	ft_list_del(&test_lst[1]);
-	PRINT_TEST_TO_CHECK();
+	print_ref(ref, 5);
+	printf("\nASM result:\n");
+	bzero(&test_lst, sizeof(test_lst));
+	ft_list_push_front_c(&test_lst, "A");
+	ft_list_push_front_c(&test_lst, "B");
+	ft_list_push_front_c(&test_lst, "C");
+	ft_list_push_front_c(&test_lst, "D");
+	ft_list_push_front_c(&test_lst, "E");
+	ft_list_print(test_lst);
+	check_return(ft_list_cmp(test_lst, ref) == 0);
+	ft_list_del(&test_lst);
 }
 
 void		test_ft_list_push_front(void)
@@ -79,5 +69,5 @@ void		test_ft_list_push_front(void)
 	PRINT_TEST_NAME("FT_LIST_PUSH_FRONT");
 	test_push_front_00();
 	test_push_front_01();
-	PRINT_SEP();
+	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
 }

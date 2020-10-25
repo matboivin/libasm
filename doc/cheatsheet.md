@@ -57,6 +57,20 @@ Other useful headers on Debian:
 /usr/include/x86_64-linux-gnu/bits/syscall.h
 ```
 
+MacOs: `osfmk/mach/i386/syscall_sw.h`
+
+```
+#define SYSCALL_CLASS_NONE  0   /* Invalid */
+#define SYSCALL_CLASS_MACH  1   /* Mach */  
+#define SYSCALL_CLASS_UNIX  2   /* Unix/BSD */
+#define SYSCALL_CLASS_MDEP  3   /* Machine-dependent */
+#define SYSCALL_CLASS_DIAG  4   /* Diagnostics */
+
+#define SYSCALL_CONSTRUCT_UNIX(syscall_number) \
+            ((SYSCALL_CLASS_UNIX << SYSCALL_CLASS_SHIFT) | \
+             (SYSCALL_NUMBER_MASK & (syscall_number)))
+```
+
 ## Calling conventions
 
 <p align="center">

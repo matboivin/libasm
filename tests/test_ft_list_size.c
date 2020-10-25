@@ -6,23 +6,23 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:29:14 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:39:21 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm_test.h"
 
-static int	ft_list_size_c(t_list *lst)
+static int	ft_list_size_c(t_list *begin_list)
 {
 	int		size;
 
 	size = 0;
-	if (lst)
+	if (begin_list)
 	{
-		while (lst)
+		while (begin_list)
 		{
 			size++;
-			lst = lst->next;
+			begin_list = begin_list->next;
 		}
 	}
 	return (size);

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:30:31 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:42:05 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,9 @@ void			test_ft_strlen(void);
 void			launch_bonus_tests(void);
 void			test_ft_list_size(void);
 void			test_ft_list_push_front(void);
-
+void			test_ft_list_sort(void);
+void			test_ft_list_remove_if(void);
+void			test_ft_atoi_base(void);
 
 /*
 ** Test utils
@@ -206,7 +208,5 @@ void			ft_list_del(t_list **begin_list);
 void			ft_list_push_back(t_list **begin_list, void *data);
 void			ft_list_print(t_list *node);
 int				data_cmp(void *data, void *data_ref);
-void			ft_list_remove_if_c(
-	t_list **begin_list, void *data_ref, int (*cmp)());
 
 #endif

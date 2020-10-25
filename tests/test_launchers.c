@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:24:35 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:35:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	launch_bonus_tests(void)
 {
 	PRINT_BONUS();
 	test_ft_list_size();
-	test_ft_list_push_front();
+	//test_ft_list_push_front();
+	//test_ft_list_sort();
+	//test_ft_list_remove_if();
+	//test_ft_atoi_base();
 	printf("MANDATORY + BONUS PART RESULTS\n\n");
 	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
 }

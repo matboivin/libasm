@@ -26,18 +26,21 @@ INC_FILES	=	libasm.h libasm_test.h
 
 TEST_FILES	=	main.c						\
 				test_counter.c				\
-				test_launchers.c			\
-				test_list_utils.c			\
-				test_str_utils.c			\
-				test_utils.c				\
+				test_ft_atoi_base.c			\
+				test_ft_list_push_front.c	\
+				test_ft_list_remove_if.c	\
+				test_ft_list_size.c			\
+				test_ft_list_sort.c			\
+				test_ft_read.c				\
 				test_ft_strcmp.c			\
 				test_ft_strcpy.c			\
 				test_ft_strdup.c			\
 				test_ft_strlen.c			\
-				test_ft_read.c				\
 				test_ft_write.c				\
-				test_ft_list_size.c			\
-				test_ft_list_push_front.c	\
+				test_launchers.c			\
+				test_list_utils.c			\
+				test_str_utils.c			\
+				test_utils.c
 
 # ********************************* OBJECTS ********************************** #
 

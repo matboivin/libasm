@@ -25,11 +25,7 @@ INC_FILES	=	libasm.h libasm_test.h
 
 TEST_FILES	=	main.c						\
 				test_counter.c				\
-				test_ft_atoi_base.c			\
-				test_ft_list_push_front.c	\
-				test_ft_list_remove_if.c	\
 				test_ft_list_size.c			\
-				test_ft_list_sort.c			\
 				test_ft_read.c				\
 				test_ft_strcmp.c			\
 				test_ft_strcpy.c			\

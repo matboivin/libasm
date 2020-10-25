@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 19:54:09 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 23:43:22 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,5 @@ void			ft_strdel(char **to_free)
 	{
 		free(*to_free);
 		*to_free = NULL;
-	}
-}
-
-void			print_ref(char **ref, int size)
-{
-	int			i;
-
-	if (!ref)
-		return ;
-	i = 0;
-	printf("Expected result:\n");
-	while (i < size)
-	{
-		printf("\"%s\"\n", ref[i]);
-		i++;
 	}
 }

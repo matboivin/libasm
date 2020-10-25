@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 20:01:19 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 23:45:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,6 @@
 # define TEST_STR_03 "A     BCD EF"
 # define TEST_STR_04 "FOO"
 # define TEST_STR_05 "bar"
-
-# define TEST_NODE_1 "1ST INPUT"
-# define TEST_NODE_2 "2ND INPUT"
-# define TEST_NODE_3 "3RD INPUT"
-# define TEST_NODE_4 "4TH INPUT"
 
 /*
 ** Output formatting
@@ -178,10 +173,6 @@ void			test_ft_strlen(void);
 
 void			launch_bonus_tests(void);
 void			test_ft_list_size(void);
-void			test_ft_list_push_front(void);
-void			test_ft_list_sort(void);
-void			test_ft_list_remove_if(void);
-void			test_ft_atoi_base(void);
 
 /*
 ** Test utils
@@ -198,8 +189,5 @@ t_list			*ft_list_new(void *p_data);
 void			ft_list_del(t_list **begin_list);
 void			ft_list_push_back(t_list **begin_list, void *data);
 void			ft_list_print(t_list *node);
-int				ft_list_cmp(t_list *test_lst, char **ref);
-int				data_cmp(void *data, void *data_ref);
-void			print_ref(char **ref, int size);
 
 #endif

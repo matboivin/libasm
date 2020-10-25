@@ -6,11 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 18:59:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:06:11 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "libasm_test.h"
 
 static void	compare_write_ret(int fd, const void *buf, size_t n)
 {
@@ -24,9 +24,9 @@ static void	compare_write_ret(int fd, const void *buf, size_t n)
 	write_errno = 0;
 	ft_errno = 0;
 	write_ret = write(fd, buf, n);
-	printf("write:\t\t%d\n", write_ret);
+	printf("\nwrite:\t\t%d\n", write_ret);
 	ft_ret = ft_write(fd, buf, n);
-	printf("ft_write:\t%d\n", ft_ret);
+	printf("\nft_write:\t%d\n", ft_ret);
 	check_return(write_ret == ft_ret);
 	if (write_errno && ft_errno)
 		check_errno_val("write", write_errno, ft_errno);
@@ -40,5 +40,6 @@ void		test_ft_write(void)
 	compare_write_ret(STDOUT_FILENO, TEST_STR_00, TEST_NEG);
 	compare_write_ret(STDOUT_FILENO, TEST_STR_00, DEFAULT_VALUE);
 	compare_write_ret(STDOUT_FILENO, TEST_STR_00, strlen(TEST_STR_00));
+	compare_write_ret(STDOUT_FILENO, TEST_STR_03, strlen(TEST_STR_00));
 	PRINT_SEP();
 }

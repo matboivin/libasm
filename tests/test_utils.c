@@ -5,96 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 13:50:21 by mboivin          ###   ########.fr       */
+/*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
+/*   Updated: 2020/10/25 16:26:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "libasm_test.h"
 
-char		*ft_strnew(size_t size)
+/*
+** Check parameters
+*/
+
+static void	print_usage(void)
 {
-	char	*result;
-
-	result = malloc((size + 1) * sizeof(char));
-	if (!result)
-		return (NULL);
-	bzero(result, size + 1);
-	return (result);
+	printf("Usage: ./libasm_tester [-h | --bonus]\n\noptional arguments:\n");
+	printf("  -h       print this usage message\n");
+	printf("  --bonus  run both mandatory and bonus tests\n");
+	exit(EXIT_SUCCESS);
 }
 
-void		ft_strdel(char **to_free)
+void		check_params(int argc, char **argv, bool *test_bonus)
 {
-	if (to_free && *to_free)
+	if ((argc < MIN_ARGC) || (argc > MAX_ARGC))
+		print_usage();
+	if (argc == MAX_ARGC)
 	{
-		free(*to_free);
-		*to_free = NULL;
+		if (strcmp(argv[1], BONUS_OPT))
+			print_usage();
+		*test_bonus = true;
 	}
 }
 
-t_list		*ft_list_new(void *p_data)
+/*
+** Assert return values are the same
+*/
+
+void		check_return(bool condition)
 {
-	t_list	*result;
-
-	result = malloc(sizeof(t_list));
-	if (!result)
-		return (NULL);
-	result->data = p_data;
-	result->next = NULL;
-	return (result);
-}
-
-void		ft_list_del(t_list **node)
-{
-	t_list	*cursor;
-	t_list	*next_list;
-
-	if (!node)
-		return ;
-	if (*node)
+	g_results->total += 1;
+	if (condition)
 	{
-		cursor = *node;
-		while (cursor)
-		{
-			next_list = cursor->next;
-			free(cursor);
-			cursor = next_list;
-		}
-		*node = NULL;
-	}
-}
-
-void		ft_list_push_back(t_list **head, t_list *new_node)
-{
-	t_list	*cursor;
-
-	if (!head || !new_node)
-		return ;
-	if (*head)
-	{
-		cursor = *head;
-		while (cursor->next)
-			cursor = cursor->next;
-		cursor->next = new_node;
+		g_results->passed += 1;
+		PRINT_TEST_OK();
 	}
 	else
-		*head = new_node;
+		PRINT_TEST_KO();
 }
 
-void		ft_list_print(t_list *lst)
-{
-	int		i;
+/*
+** Assert errno values are the same
+*/
 
-	if (lst)
+void		check_errno_val(char *func_name, int ori_errno, int ft_errno)
+{
+	PRINT_ERRNO_VAL(func_name, ori_errno, ft_errno);
+	if (ori_errno == ft_errno)
 	{
-		i = 1;
-		while (lst)
-		{
-			printf("node %d -> data: \"%s\"\n", i, lst->data);
-			lst = lst->next;
-			i++;
-		}
+		PRINT_TEST_OK();
 	}
 	else
-		printf("NULL\n");
+		PRINT_TEST_KO();
 }

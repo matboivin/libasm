@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_errno_val.c                                  :+:      :+:    :+:   */
+/*   test_counter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:42:03 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:25:13 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "libasm_test.h"
 
-void	check_errno_val(char *func_name, int ori_errno, int ft_errno)
+/*
+** Result counter
+*/
+
+t_result		*malloc_result(void)
 {
-	PRINT_ERRNO_VAL(func_name, ori_errno, ft_errno);
-	if (ori_errno == ft_errno)
-	{
-		PRINT_TEST_OK();
-	}
-	else
-		PRINT_TEST_KO();
+	t_result	*result;
+
+	result = malloc(sizeof(t_result));
+	if (!result)
+		exit(EXIT_FAILURE);
+	result->total = 0;
+	result->passed = 0;
+	result->test_num = 0;
+	return (result);
+}
+
+void			free_result(t_result *to_free)
+{
+	free(to_free);
 }

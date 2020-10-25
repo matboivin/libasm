@@ -6,19 +6,19 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 21:02:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:20:24 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "libasm_test.h"
 
 static void	compare_copies(const char *s)
 {
-	char	*strcpy_ret = NULL;
-	char	*ft_ret = NULL;
-	char	*dst = NULL;
-	char	*ft_dst = NULL;
-	char	*src = NULL;
+	char	*strcpy_ret;
+	char	*ft_ret;
+	char	*dst;
+	char	*ft_dst;
+	char	*src;
 
 	g_results->test_num++;
 	PRINT_TEST_INPUT(g_results->test_num, s, NULL);
@@ -42,7 +42,6 @@ void		test_ft_strcpy(void)
 	g_results->test_num = 0;
 	PRINT_TEST_NAME("FT_STRCPY");
 	compare_copies(TEST_STR_EMPTY);
-	compare_copies(TEST_STR_00);
 	compare_copies(TEST_STR_00);
 	compare_copies(TEST_STR_01);
 	compare_copies(TEST_STR_02);

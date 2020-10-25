@@ -6,63 +6,78 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 19:15:50 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/24 14:03:00 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:08:54 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "libasm_test.h"
 
-static void	ft_list_push_front_c(t_list **lst, t_list *new_elem)
+static void	ft_list_push_front_c(t_list **begin_list, void *data)
 {
-	if (lst && new_elem)
+	t_list	*new_elem;
+
+	new_elem = ft_list_new(data);
+	if (begin_list && new_elem)
 	{
-		new_elem->next = *lst;
-		*lst = new_elem;
+		new_elem->next = *begin_list;
+		*begin_list = new_elem;
 	}
 }
 
-static void	create_test_list(t_list **test_lst)
+static void	test_push_front_00(void)
 {
-	ft_list_push_back(test_lst, ft_list_new(TEST_STR_00));
-	ft_list_push_back(test_lst, ft_list_new(TEST_STR_00));
-	ft_list_push_back(test_lst, ft_list_new(TEST_STR_00));
-}
+	t_list	*test_lst[2];
 
-static void	push_front_c(t_list *test_lst, t_list *new_elem)
-{
-	printf("C function:\n");
-	ft_list_push_front_c(&test_lst, new_elem);
-	ft_list_print(test_lst);
-	ft_list_remove_if_c(&test_lst, new_elem->data);
-}
-
-static void	push_front_asm(t_list *test_lst, t_list *new_elem)
-{
-	printf("ASM function:\n");
-	ft_list_push_front_c(&test_lst, new_elem);
-	ft_list_print(test_lst);
-	ft_list_remove_if_c(&test_lst, new_elem->data);
-}
-
-static void	compare_list_elem(t_list *new_elem)
-{
-	t_list	*test_lst;
-
-	test_lst = NULL;
-	create_test_list(&test_lst);
+	bzero(&test_lst, sizeof(test_lst));
 	g_results->test_num++;
 	PRINT_TEST_INPUT(g_results->test_num, NULL, NULL);
-	PRINT_TEST_LIST(test_lst);
-	PRINT_TEST_NEW_ELEM(new_elem);
-	push_front_c(test_lst, new_elem);
-	push_front_asm(test_lst, new_elem);
-	ft_list_del(&test_lst);
+	printf("C function:\n");
+	ft_list_push_front_c(&test_lst[0], "C: 1ST INPUT");
+	ft_list_push_front_c(&test_lst[0], "C: 2ND INPUT");
+	ft_list_push_front_c(&test_lst[0], "C: 3RD INPUT");
+	ft_list_push_front_c(&test_lst[0], "C: 4TH INPUT");
+	ft_list_print(test_lst[0]);
+	printf("\nASM function:\n");
+	ft_list_push_front_c(&test_lst[1], "ASM: 1ST INPUT");
+	ft_list_push_front_c(&test_lst[1], "ASM: 2ND INPUT");
+	ft_list_push_front_c(&test_lst[1], "ASM: 3RD INPUT");
+	ft_list_push_front_c(&test_lst[1], "ASM: 4TH INPUT");
+	ft_list_print(test_lst[1]);
+	printf("\n");
+	ft_list_del(&test_lst[0]);
+	ft_list_del(&test_lst[1]);
+	PRINT_TEST_TO_CHECK();
+}
+
+static void	test_push_front_01(void)
+{
+	t_list	*test_lst[2];
+
+	bzero(&test_lst, sizeof(test_lst));
+	g_results->test_num++;
+	PRINT_TEST_INPUT(g_results->test_num, NULL, NULL);
+	printf("C function:\n");
+	ft_list_push_front_c(&test_lst[0], "C: A");
+	ft_list_push_front_c(&test_lst[0], "C: B");
+	ft_list_print(test_lst[0]);
+	printf("\nASM function:\n");
+	ft_list_push_front_c(&test_lst[1], "ASM: C");
+	ft_list_push_front_c(&test_lst[1], "ASM: D");
+	ft_list_push_front_c(&test_lst[1], "ASM: E");
+	ft_list_push_front_c(&test_lst[1], "ASM: F");
+	ft_list_push_front_c(&test_lst[1], "ASM: G");
+	ft_list_print(test_lst[1]);
+	printf("\n");
+	ft_list_del(&test_lst[0]);
+	ft_list_del(&test_lst[1]);
+	PRINT_TEST_TO_CHECK();
 }
 
 void		test_ft_list_push_front(void)
 {
 	g_results->test_num = 0;
 	PRINT_TEST_NAME("FT_LIST_PUSH_FRONT");
-	compare_list_elem(ft_list_new(TEST_STR_01));
-	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
+	test_push_front_00();
+	test_push_front_01();
+	PRINT_SEP();
 }

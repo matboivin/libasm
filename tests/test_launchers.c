@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   result_count.c                                     :+:      :+:    :+:   */
+/*   test_launchers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/19 17:36:18 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:24:35 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "libasm_test.h"
 
-t_result		*malloc_result(void)
+/*
+** Mandatory tests launcher
+*/
+
+void	launch_tests(void)
 {
-	t_result	*result;
-
-	result = malloc(sizeof(t_result));
-	if (!result)
-		exit(EXIT_FAILURE);
-	result->total = 0;
-	result->passed = 0;
-	result->test_num = 0;
-	return (result);
+	g_results = malloc_result();
+	PRINT_START();
+	test_ft_read();
+	test_ft_write();
+	test_ft_strlen();
+	test_ft_strcpy();
+	test_ft_strcmp();
+	test_ft_strdup();
+	printf("MANDATORY PART RESULTS\n\n");
+	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
 }
 
-void			free_result(t_result *to_free)
+/*
+** Bonus tests launcher
+*/
+
+void	launch_bonus_tests(void)
 {
-	free(to_free);
+	PRINT_BONUS();
+	test_ft_list_size();
+	test_ft_list_push_front();
+	printf("MANDATORY + BONUS PART RESULTS\n\n");
+	PRINT_TEST_RESULTS(g_results->passed, g_results->total);
 }

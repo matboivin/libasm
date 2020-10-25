@@ -6,17 +6,19 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 20:54:30 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 16:19:43 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "libasm_test.h"
 
 static void	compare_strings(char *s1, const char *s2)
 {
-	int		strcmp_ret = 0;
-	int		ft_ret = 0;
+	int		strcmp_ret;
+	int		ft_ret;
 
+	strcmp_ret = 0;
+	ft_ret = 0;
 	g_results->test_num++;
 	PRINT_TEST_INPUT(g_results->test_num, s1, s2);
 	strcmp_ret = strcmp(s1, s2);
@@ -32,9 +34,9 @@ void		test_ft_strcmp(void)
 	PRINT_TEST_NAME("FT_STRCMP");
 	compare_strings(TEST_STR_EMPTY, TEST_STR_EMPTY);
 	compare_strings(TEST_STR_00, TEST_STR_00);
-	compare_strings(TEST_STR_00, TEST_STR_02);
+	compare_strings(TEST_STR_00, TEST_STR_01);
 	compare_strings(TEST_STR_02, TEST_STR_02);
-	compare_strings(TEST_STR_03, TEST_STR_01);
+	compare_strings(TEST_STR_02, TEST_STR_03);
 	compare_strings(TEST_STR_04, TEST_STR_05);
 	compare_strings(TEST_STR_05, TEST_STR_04);
 	compare_strings(TEST_STR_05, TEST_STR_05);

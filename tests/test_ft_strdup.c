@@ -6,11 +6,11 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 17:40:55 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/23 21:01:39 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 14:52:04 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libasm.h"
+#include "libasm_test.h"
 
 static void	compare_duplicates(const char *s)
 {

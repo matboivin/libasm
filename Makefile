@@ -22,13 +22,14 @@ SRC_BONUS	=	ft_list_size.s
 
 # ******************************** TEST FILES ******************************** #
 
-INC_FILES	=	libasm.h libasm_list.h libasm_tests.h
+INC_FILES	=	libasm.h libasm_test.h
 
 TEST_FILES	=	main.c						\
-				launch_tests.c				\
-				result_count.c				\
-				check_errno_val.c			\
-				check_return.c				\
+				test_counter.c				\
+				test_launchers.c			\
+				test_list_utils.c			\
+				test_str_utils.c			\
+				test_utils.c				\
 				test_ft_strcmp.c			\
 				test_ft_strcpy.c			\
 				test_ft_strdup.c			\
@@ -37,8 +38,6 @@ TEST_FILES	=	main.c						\
 				test_ft_write.c				\
 				test_ft_list_size.c			\
 				test_ft_list_push_front.c	\
-				test_ft_list_remove_if.c	\
-				test_utils.c
 
 # ********************************* OBJECTS ********************************** #
 
@@ -75,7 +74,7 @@ TEST		=	$(addprefix $(TEST_DIR)/, $(TEST_FILES))
 OBJ			=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
 OBJ_BONUS	=	$(addprefix $(OBJ_DIR)/, $(OBJ_BONUS_FILES))
 
-VPATH		=	$(SRC_DIR) $(TEST_DIR)
+VPATH		=	$(SRC_DIR) $(TEST_DIR) $(TEST_DIR)/utils
 
 # *************************** COMPILING AND FLAGS **************************** #
 
@@ -122,7 +121,7 @@ $(NAME): $(OBJ_DIR) $(OBJ)
 
 bonus: $(NAME) $(OBJ_BONUS)
 	@$(AR) $(ARFLAGS) -o $(NAME) $(OBJ_BONUS)
-	@echo "\nOK\t\tAdded bonus files to $(NAME)"
+	@echo "OK\t\tAdded bonus files to $(NAME)"
 
 # DEBUG #
 
@@ -132,7 +131,7 @@ show:
 
 debug: $(NAME)
 	@$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o libasm_tester
-	@echo "\nOK\t\tCreated test executable\n"
+	@echo "OK\t\tCreated test executable\n"
 	@./libasm_tester -h
 
 # CLEAN #

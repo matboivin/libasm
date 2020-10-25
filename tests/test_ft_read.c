@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:06:15 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 20:18:06 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static int	ft_read_file(
 static void	compare_read_ret(char *buf, const char *pathname, size_t count)
 {
 	int		read_ret;
-	int		ft_ret;
 	int		read_errno;
+	int		ft_ret;
 	int		ft_errno;
 
 	g_results->test_num++;

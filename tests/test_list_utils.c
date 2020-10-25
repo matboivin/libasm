@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 19:36:42 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/25 20:10:32 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int				ft_list_cmp(t_list *test_lst, char **ref)
 	i = 0;
 	while (test_lst && ref[i])
 	{
-		if (test_lst-> data != ref[i])
+		if (test_lst->data != ref[i])
 			return (1);
 		test_lst = test_lst->next;
 		i++;

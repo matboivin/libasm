@@ -1,6 +1,5 @@
 NAME := libasm.a
 
-SHELL = /bin/sh
 RM = /bin/rm
 
 .SUFFIXES:
@@ -76,20 +75,20 @@ VPATH		=	$(SRC_DIR) $(TEST_DIR) $(TEST_DIR)/utils
 
 # *************************** COMPILING AND FLAGS **************************** #
 
-AS = nasm
-
 ifeq ($(OS), Linux)
+	AS = nasm
 	ASFLAGS = -f elf64
 endif
 
 ifeq ($(OS), MacOS)
+	AS = /usr/local/bin/nasm
 	ASFLAGS = -f macho64
 endif
 
 CC = clang
 AR = ar
 
-ARFLAGS = -rcs
+ARFLAGS = rc
 CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 CPPFLAGS = -I$(TEST_DIR)
 LDFLAGS = -L.
@@ -112,7 +111,7 @@ $(OBJ_DIR)/%.o : %.s
 	@$(AS) $(ASFLAGS) $< -o $@
 
 $(NAME): $(OBJ_DIR) $(OBJ)
-	@$(AR) $(ARFLAGS) -o $@ $(OBJ)
+	@$(AR) $(ARFLAGS) $@ $(OBJ)
 	@echo "\nOK\t\t$(NAME) is ready"
 
 # BONUS #

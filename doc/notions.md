@@ -65,6 +65,7 @@ MacOs
 
 - [Simple assembly program on MacOS](https://blacksheephacks.pl/simple-assembly-program-on-macos/)
 - [basic assembly not working on Mac (x86_64+Lion)?](https://stackoverflow.com/questions/11179400/basic-assembly-not-working-on-mac-x86-64lion)
+- [64-bit syscall documentation for MacOS assembly](https://stackoverflow.com/questions/47834513/64-bit-syscall-documentation-for-macos-assembly)
 
 Misc.  
 - [Create CI build and test](https://codereview.stackexchange.com/questions/180376/nasm-tutorial-linux-syscalls-64-bit-code-with-ci-build-and-test)

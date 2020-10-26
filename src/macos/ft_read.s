@@ -12,17 +12,14 @@ _ft_read:
         mov     rax, MAC_SYSCALL_CONSTRUCT(READ)
         syscall
         cmp     rax, rdx
-        jne     _error
+        jnc     _done
+
+        push    rax
+        call    ___error
+        pop     WORD [rax]
+        mov     rax, ERROR_VAL
 
 _done:
         mov     rsp, rbp
         pop     rbp
         ret
-
-_error:
-        neg     rax
-        push    rax
-        call    ___error
-        pop     WORD [rax]
-        mov     rax, ERROR_VAL
-        jmp     _done

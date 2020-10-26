@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:26:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/26 12:07:57 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ void		check_return(bool condition)
 
 void		check_errno_val(char *func_name, int ori_errno, int ft_errno)
 {
+	g_results->total += 1;
 	PRINT_ERRNO_VAL(func_name, ori_errno, ft_errno);
 	if (ori_errno == ft_errno)
 	{
+		g_results->passed += 1;
 		PRINT_TEST_OK();
 	}
 	else

@@ -82,6 +82,8 @@ Images source: [Wikibooks: X86 Assembly/Interfacing with Linux](https://en.wikib
 
 ## Errno
 
+### Linux
+
 Install `moreutils` package on Linux and run:
 ```
 errno -l
@@ -110,6 +112,11 @@ Steps:
 - Call `__errno_location`
 - The return of `__errno_location` is the address of the errno variable
 - Set its value with the error code
+
+### MacOs
+
+- A syscall return `errno` and sets the carry flag on error, instead of returning `-errno` in `rax`
+- `rdx` register is clobbered by `syscall`
 
 ## Push and pop
 

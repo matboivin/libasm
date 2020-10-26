@@ -16,7 +16,7 @@ ft_strdup:
 
         call    malloc
         test    rax, rax                ; checks malloc return
-        jz      error
+        jz      set_errno
 
         mov     rdi, rax                ; moves address to be used as dst for copy
         pop     rsi                     ; restores the string as src
@@ -27,10 +27,10 @@ done:
         pop     rbp
         ret
 
-error:
+set_errno:
         neg     rax                     ; gets the positive error code
         push    rax                     ; saves error code
         call    __errno_location        ; gets the address of the errno variable
-        pop     WORD [rax]              ; restores the error code as the value of errno
+        pop     WORD [rax]              ; restores the error code as errno value
         xor     rax, rax                ; sets the return value to 0
         jmp     done

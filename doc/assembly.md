@@ -145,6 +145,8 @@ mov QWORD [dst], 0      ; Move the 64-bit integer repr of 0 into the 8 bytes sta
 
 ## Prologue / Epilogue
 
+> The base pointer is conventionally used to mark the start of a function's stack frame, or the area of the stack managed by that function. Local variables are stored below the base pointer and above the stack pointer. The start of each function has a preamble saves the old base pointer and initializes a new one and the end of each function has epilogue that restores the old base pointer.  [(Source)](https://codearcana.com/posts/2013/05/21/a-brief-introduction-to-x86-calling-conventions.html)
+
 Source: [ENTER and LEAVE in Assembly?](https://stackoverflow.com/questions/5858996/enter-and-leave-in-assembly)
 
 - `enter` creates a stack frame

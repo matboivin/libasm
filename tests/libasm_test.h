@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 23:45:18 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/26 16:28:11 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 
 # define TEST_STR_EMPTY ""
 # define TEST_STR_00 "Hello World!"
-# define TEST_STR_01 "Hell "
+# define TEST_STR_01 "Hell"
 # define TEST_STR_02 "a     bcd ef"
 # define TEST_STR_03 "A     BCD EF"
 # define TEST_STR_04 "FOO"

@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 16:19:43 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/26 16:24:46 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ void		test_ft_strcmp(void)
 	g_results->test_num = 0;
 	PRINT_TEST_NAME("FT_STRCMP");
 	compare_strings(TEST_STR_EMPTY, TEST_STR_EMPTY);
+	compare_strings(TEST_STR_00, TEST_STR_EMPTY);
+	compare_strings(TEST_STR_EMPTY, TEST_STR_00);
 	compare_strings(TEST_STR_00, TEST_STR_00);
 	compare_strings(TEST_STR_00, TEST_STR_01);
+	compare_strings(TEST_STR_01, TEST_STR_00);
 	compare_strings(TEST_STR_02, TEST_STR_02);
 	compare_strings(TEST_STR_02, TEST_STR_03);
 	compare_strings(TEST_STR_04, TEST_STR_05);

@@ -100,3 +100,10 @@ Text / Code segment:
 - Sharable and read-ony
 
 > The code segment in memory is typically read-only and has a fixed size, so on embedded systems it can usually be placed in read-only memory (ROM), without the need for loading. If the code segment is not read-only, then the particular architecture allows self-modifying code. Fixed-position or position independent code may be shared in memory by several processes in segmented or paged memory systems. As a memory region, the code segment may be placed below the heap or stack in order to prevent heap and stack overflows from overwriting it.  [(Source)](https://en.wikipedia.org/wiki/Code_segment)
+
+# Stack frame
+
+> A stack frame is a frame of data that gets pushed onto the stack. In the case of a call stack, a stack frame would represent a function call and its argument data.  
+If I remember correctly, the function return address is pushed onto the stack first, then the arguments and space for local variables. Together, they make the "frame," although this is likely architecture-dependent. The processor knows how many bytes are in each frame and moves the stack pointer accordingly as frames are pushed and popped off the stack.
+
+[Explain the concept of a stack frame in a nutshell](https://stackoverflow.com/questions/10057443/explain-the-concept-of-a-stack-frame-in-a-nutshell)

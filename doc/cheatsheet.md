@@ -117,6 +117,9 @@ Steps:
 
 - A syscall return `errno` and sets the carry flag on error, instead of returning `-errno` in `rax`
 - `rdx` register is clobbered by `syscall`
+- MacOS being a BSD variant it is the carry flag that tells you if the syscall was wrong or not (errno is just an external linkage variable)
+
+> Some BIOS calls may not be implemented on every machine, and are not guaranteed to work. Often an unimplemented interrupt will return either 0x86 or 0x80 in register AH. Just about every interrupt will set the carry flag (CF) on an error condition. This makes it easy to jump to an error handler with the jc conditional jump.  [(Source)](https://riptutorial.com/x86/example/23463/bios-calls)
 
 ## Push and pop
 

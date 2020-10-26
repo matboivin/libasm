@@ -11,7 +11,6 @@ _ft_read:
         xor     rax, rax
         mov     rax, MAC_SYSCALL_CONSTRUCT(READ)
         syscall
-        cmp     rax, rdx
         jnc     _done
 
         push    rax

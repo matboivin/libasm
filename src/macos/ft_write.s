@@ -11,7 +11,6 @@ _ft_write:
         xor     rax, rax
         mov     rax, MAC_SYSCALL_CONSTRUCT(WRITE)
         syscall
-        cmp     rax, rdx
         jnc     _done
 
         push    rax

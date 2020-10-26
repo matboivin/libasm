@@ -89,7 +89,7 @@ CC = clang
 AR = ar
 
 ARFLAGS = rc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3
 CPPFLAGS = -I$(TEST_DIR)
 LDFLAGS = -L.
 LDLIBS = -lasm
@@ -125,6 +125,7 @@ bonus: $(NAME) $(OBJ_BONUS)
 show:
 	@echo "OS: $(OS)"
 	@echo "SRC_DIR: $(SRC_DIR)"
+	@echo "$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o libasm_tester"
 
 debug: $(NAME)
 	@$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o libasm_tester

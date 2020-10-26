@@ -107,11 +107,10 @@ The [__errno_location](http://refspecs.linux-foundation.org/LSB_4.0.0/LSB-Core-g
 
 Steps:
 
-- Reverse the sign of the error code to get the positive error code
-- Moves function's return from rax to rdi to pass it to `__errno_location`
+- Reverse the sign of the error code to get the positive error code and save it (push)
 - Call `__errno_location`
 - The return of `__errno_location` is the address of the errno variable
-- Set its value with the error code
+- Set its value with the error code (pop)
 
 ### MacOs
 

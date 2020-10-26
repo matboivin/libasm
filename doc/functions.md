@@ -23,3 +23,7 @@ For example, `repne scasb` will scan bytes of a string until the trailing null c
 ## Misc.
 
 - swap values using [push](https://www.aldeid.com/wiki/X86-assembly/Instructions/push) and [pop](https://www.aldeid.com/wiki/X86-assembly/Instructions/pop)
+
+## strcmp
+
+- [strcmp() return different values for same string comparisons](https://stackoverflow.com/questions/33091350/strcmp-return-different-values-for-same-string-comparisons)

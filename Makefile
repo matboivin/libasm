@@ -123,7 +123,7 @@ bonus: $(NAME) $(OBJ_BONUS)
 # DEBUG #
 
 show:
-	@echo "OS: $(OS_NAME)"
+	@echo "OS: $(OS)"
 	@echo "SRC_DIR: $(SRC_DIR)"
 
 debug: $(NAME)

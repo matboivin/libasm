@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/26 18:15:25 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/10/29 16:47:55 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,13 @@ static void	compare_strings(char *s1, const char *s2)
 void		print_warn_cmp(void)
 {
 	printf("%s-> Warning%s\n", COL_YELLOW_B, COL_RESET);
-	printf("strcmp() return different values for same string comparisons\nThe difference is due to the implementation of strcmp and passed flags.\nAs long as it conforms to the (<0, 0, >0), it is correct.\n\n");
 	printf(
-		"strcmp() returns an integer indicating the result of the comparison, as follows:\n\
-	• 0, if the s1 and s2 are equal;\n\
-	• a negative value if s1 is less than s2;\n\
-	• a positive value if s1 is greater than s2\n\n");
+		"strcmp() return different values for same string comparisons\n\
+		\rThe difference is due to the implementation of strcmp and passed flags.\nAs long as it conforms to the (<0, 0, >0), it is correct.\n\n\
+		\rstrcmp() returns an integer indicating the result of the comparison, as follows:\n\
+		\r  • 0, if the s1 and s2 are equal;\n\
+		\r  • a negative value if s1 is less than s2;\n\
+		\r  • a positive value if s1 is greater than s2\n\n");
 }
 
 void		test_ft_strcmp(void)

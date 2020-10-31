@@ -109,9 +109,11 @@ $(OBJ_DIR)/%.o : %.s
 	@echo "\r\033[KCompiling\t$< \c"
 	@$(AS) $(ASFLAGS) $< -o $@
 
+# ARCHIVING AND INDEXING #
+
 $(NAME): $(OBJ_DIR) $(OBJ)
 	@$(AR) $(ARFLAGS) $@ $(OBJ)
-	@echo "\nOK\t\t$(NAME) is ready"
+	@echo "\nOK\t\t$@ is ready"
 
 # BONUS #
 

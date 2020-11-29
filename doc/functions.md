@@ -18,7 +18,7 @@ For example, `repne scasb` will scan bytes of a string until the trailing null c
 ## memcmp
 
 - [rep](https://www.aldeid.com/wiki/X86-assembly/Instructions/rep): repeats until rcx != 0
-- cmpsb [1]](https://www.aldeid.com/wiki/X86-assembly/Instructions/cmpsb)|[2](http://vitaly_filatov.tripod.com/ng/asm/asm_000.17.html): compares string bytes. After the comparison, SI and DI are incremented (if the direction flag is cleared) or decremented (if the direction flag is set).
+- cmpsb [1](https://www.aldeid.com/wiki/X86-assembly/Instructions/cmpsb) | [2](http://vitaly_filatov.tripod.com/ng/asm/asm_000.17.html): compares string bytes. After the comparison, SI and DI are incremented (if the direction flag is cleared) or decremented (if the direction flag is set).
 
 ## Misc.
 

@@ -54,4 +54,3 @@ dkms.conf
 .gdb_history
 peda-session-test_libasm.txt
 libasm_tester
-doc/assets/syscall_sw.h

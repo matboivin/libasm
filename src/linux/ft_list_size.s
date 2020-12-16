@@ -4,22 +4,22 @@
         global  ft_list_size
 
 ft_list_size:
-        push    rbp                     ; enter
+        push    rbp
         mov     rbp, rsp
 
-        xor     rax, rax                ; clears rax
-        xor     rcx, rcx                ; clears rcx (count)
+        xor     rax, rax
+        xor     rcx, rcx
 
 while_node:
-        cmp     rdi, 0                  ; checks if node is null
+        cmp     rdi, 0
         je      done
-        inc     rcx                     ; increments count by 1
-        mov     rdi, [rdi + NODE_SIZE]  ; moves to next node
+        inc     rcx
+        mov     rdi, [rdi + NODE_SIZE]
         jmp     while_node
 
 done:
-        mov     rax, rcx                ; moves count in return
+        mov     rax, rcx
 
-        mov     rsp, rbp                ; leave
+        mov     rsp, rbp
         pop     rbp
         ret

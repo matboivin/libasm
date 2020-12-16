@@ -2,24 +2,24 @@
         global  ft_strcpy
 
 ft_strcpy:
-        push    rbp             ; enter
+        push    rbp
         mov     rbp, rsp
 
-        xor     rax, rax        ; clears rax
-        mov     rax, rdi        ; returns pointer to dst
+        xor     rax, rax
+        mov     rax, rdi
 
 loop_cpy:
-        cmp     BYTE [rsi], 0   ; checks src
+        cmp     BYTE [rsi], 0
         je      done
-        mov     dl, [rsi]       ; moves to dl the byte from src
-        mov     [rdi], dl       ; moves to dst the byte from dl
-        inc     rdi             ; increments s1
-        inc     rsi             ; increments s2
+        mov     dl, [rsi]
+        mov     [rdi], dl
+        inc     rdi
+        inc     rsi
         jmp     loop_cpy
 
 done:
-        mov     BYTE [rdi], 0   ; adds trailing null char
+        mov     BYTE [rdi], 0
 
-        mov     rsp, rbp        ; leave
+        mov     rsp, rbp
         pop     rbp
         ret

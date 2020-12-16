@@ -6,31 +6,31 @@
         extern  __errno_location
 
 ft_strdup:
-        push    rbp                     ; enter
+        push    rbp
         mov     rbp, rsp
 
-        push    rdi                     ; saves the string
-        call    ft_strlen               ; gets the string length
-        inc     rax                     ; increments for terminating character
-        mov     rdi, rax                ; moves length in rdi to malloc the result
+        push    rdi
+        call    ft_strlen
+        inc     rax
+        mov     rdi, rax
 
         call    malloc
-        test    rax, rax                ; checks malloc return
+        test    rax, rax
         jz      set_errno
 
-        mov     rdi, rax                ; moves address to be used as dst for copy
-        pop     rsi                     ; restores the string as src
+        mov     rdi, rax
+        pop     rsi
         call    ft_strcpy
 
 done:
-        mov     rsp, rbp                ; leave
+        mov     rsp, rbp
         pop     rbp
         ret
 
 set_errno:
-        neg     rax                     ; gets the positive error code
-        push    rax                     ; saves error code
-        call    __errno_location        ; gets the address of the errno variable
-        pop     WORD [rax]              ; restores the error code as errno value
-        xor     rax, rax                ; sets the return value to 0
+        neg     rax
+        push    rax
+        call    __errno_location
+        pop     WORD [rax]
+        xor     rax, rax
         jmp     done

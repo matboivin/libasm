@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 20:18:06 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/12/16 13:21:03 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	compare_read_ret(char *buf, const char *pathname, size_t count)
 	int		ft_errno;
 
 	g_results->test_num++;
-	PRINT_TEST_INPUT(g_results->test_num, NULL, NULL);
+	PRINT_TEST_NUMBER(g_results->test_num);
 	read_errno = 0;
 	ft_errno = 0;
 	read_ret = read_file(buf, pathname, count, &read_errno);
@@ -72,9 +72,9 @@ void		test_ft_read(void)
 
 	g_results->test_num = 0;
 	PRINT_TEST_NAME("FT_READ");
-	compare_read_ret(buf, "lol", TEST_NEG);
-	compare_read_ret(buf, TEST_FD_PATH, TEST_NEG);
-	compare_read_ret(buf, TEST_FD_PATH, DEFAULT_VALUE);
-	compare_read_ret(buf, TEST_FD_PATH, TEST_SIZE);
+	compare_read_ret(buf, "foo", -1);
+	compare_read_ret(buf, TEST_FD_PATH, -1);
+	compare_read_ret(buf, TEST_FD_PATH, 0);
+	compare_read_ret(buf, TEST_FD_PATH, 42);
 	PRINT_SEP();
 }

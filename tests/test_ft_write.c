@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 20:19:45 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/12/16 13:23:46 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	compare_write_ret(int fd, const void *buf, size_t n)
 	int		ft_errno;
 
 	g_results->test_num++;
-	PRINT_TEST_INPUT(g_results->test_num, buf, NULL);
+	PRINT_TEST_NUMBER(g_results->test_num);
 	write_errno = 0;
 	ft_errno = 0;
 	write_ret = write(fd, buf, n);
@@ -40,10 +40,10 @@ void		test_ft_write(void)
 {
 	g_results->test_num = 0;
 	PRINT_TEST_NAME("FT_WRITE");
-	compare_write_ret(STDOUT_FILENO, NULL, TEST_SIZE);
-	compare_write_ret(-1, NULL, TEST_SIZE);
-	compare_write_ret(STDOUT_FILENO, TEST_STR_00, TEST_NEG);
-	compare_write_ret(STDOUT_FILENO, TEST_STR_00, strlen(TEST_STR_00));
-	compare_write_ret(STDOUT_FILENO, TEST_STR_00, strlen(TEST_STR_05));
+	compare_write_ret(STDOUT_FILENO, NULL, 42);
+	compare_write_ret(-1, NULL, 42);
+	compare_write_ret(STDOUT_FILENO, TEST_STR_HELLO, -1);
+	compare_write_ret(STDOUT_FILENO, TEST_STR_HELLO, strlen(TEST_STR_HELLO));
+	compare_write_ret(STDOUT_FILENO, TEST_STR_HELLO, strlen(TEST_STR_HELL));
 	PRINT_SEP();
 }

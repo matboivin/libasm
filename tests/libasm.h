@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 23:44:56 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/12/16 13:12:14 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ char				*ft_strdup(const char *s);
 ** Bonus functions
 */
 
-typedef struct		s_list
+typedef struct		s_node
 {
-	void			*data;
-	struct s_list	*next;
-}					t_list;
+	void			*content;
+	struct s_node	*next;
+}					t_node;
 
-int					ft_list_size(t_list *begin_list);
+int					ft_list_size(t_node *head);
 
 #endif

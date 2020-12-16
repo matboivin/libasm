@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/26 12:07:57 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/12/16 13:19:28 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,19 @@ void		check_errno_val(char *func_name, int ori_errno, int ft_errno)
 	}
 	else
 		PRINT_TEST_KO();
+}
+
+/*
+** Prints test string inputs
+*/
+
+void	print_test_input(char *input1, char *input2)
+{
+	if (input1 && input2)
+		printf(
+			" s1 -> \"%s\" | s2 -> \"%s\"\n",
+			(char *)input1, (char *)input2);
+	else if (input1)
+		printf("Input -> \"%s\"\n", (char *)input1);
+	printf("\n");
 }

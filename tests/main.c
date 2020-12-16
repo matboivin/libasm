@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 23:41:04 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/12/16 13:31:48 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			main(int argc, char **argv)
 	launch_tests();
 	if (test_bonus)
 		launch_bonus_tests();
-	PRINT_END();
+	PRINT_TITLE("END OF TESTS");
 	if (g_results->passed != g_results->total)
 		ret_val = 1;
 	free_result(g_results);

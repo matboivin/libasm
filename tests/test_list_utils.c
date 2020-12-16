@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:49 by mboivin           #+#    #+#             */
-/*   Updated: 2020/10/25 23:43:12 by mboivin          ###   ########.fr       */
+/*   Updated: 2020/12/16 13:15:18 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,65 +16,65 @@
 ** List utils
 */
 
-t_list			*ft_list_new(void *p_data)
+t_node		*ft_list_new(void *p_content)
 {
-	t_list		*result;
+	t_node	*result;
 
-	result = malloc(sizeof(t_list));
+	result = malloc(sizeof(t_node));
 	if (!result)
 		return (NULL);
-	result->data = p_data;
+	result->content = p_content;
 	result->next = NULL;
 	return (result);
 }
 
-void			ft_list_del(t_list **begin_list)
+void		ft_list_del(t_node **node)
 {
-	t_list		*cursor;
-	t_list		*next_node;
+	t_node	*cursor;
+	t_node	*next_node;
 
-	if (!begin_list)
+	if (!node)
 		return ;
-	if (*begin_list)
+	if (*node)
 	{
-		cursor = *begin_list;
+		cursor = *node;
 		while (cursor)
 		{
 			next_node = cursor->next;
 			free(cursor);
 			cursor = next_node;
 		}
-		*begin_list = NULL;
+		*node = NULL;
 	}
 }
 
-void			ft_list_push_back(t_list **begin_list, void *data)
+void		ft_list_append(t_node **head, t_node *new_node)
 {
-	t_list		*cursor;
+	t_node	*cursor;
 
-	if (!begin_list || !data)
+	if (!head || !new_node)
 		return ;
-	if (*begin_list)
+	if (*head)
 	{
-		cursor = *begin_list;
+		cursor = *head;
 		while (cursor->next)
 			cursor = cursor->next;
-		cursor->next = ft_list_new(data);
+		cursor->next = new_node;
 	}
 	else
-		*begin_list = ft_list_new(data);
+		*head = new_node;
 }
 
-void			ft_list_print(t_list *node)
+void		ft_list_print(t_node *node)
 {
-	int			i;
+	int		i;
 
 	if (node)
 	{
 		i = 1;
 		while (node)
 		{
-			printf("node %d -> data: \"%s\"\n", i, node->data);
+			printf("node %d -> content: \"%s\"\n", i, (char *)node->content);
 			node = node->next;
 			i++;
 		}

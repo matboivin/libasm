@@ -131,7 +131,7 @@ show:
 debug: re bonus
 	@$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o libasm_tester
 	@echo "OK\t\tCreated test executable\n"
-	@./libasm_tester -h
+	@./libasm_tester --bonus
 
 # CLEAN #
 

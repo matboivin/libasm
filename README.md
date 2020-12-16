@@ -18,32 +18,19 @@ I gathered all the resources that were helpful in the `doc` directory. You can c
 - GNU make and a C compiler
 - NASM assembler
 
-### Usage
+### Installing
 
 Clone the repository, change it to your working directory and run:
 ```console
 $ make
 ```
 
-### Common tasks
+### License
 
-To display the OS and the src directory:
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>
 
-```console
-$ make show
-```
-
-To create the `libasm_tester` test suite:
-```console
-$ make debug
-
-$./libasm_tester -h
-Usage: ./libasm_tester [-h | --bonus]
-
-optional arguments:
-  -h       print this usage message
-  --bonus  run both mandatory and bonus tests
-```
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
 
 ### Acknowledgements
 

@@ -1,4 +1,36 @@
-# Functions
+# Process
+
+## Define
+
+Was inspired by [MacOS Syscall header](https://opensource.apple.com/source/xnu/xnu-792.13.8/osfmk/mach/i386/syscall_sw.h):
+
+```
+#define SYSCALL_CLASS_SHIFT	24
+#define SYSCALL_CLASS_MASK	(0xFF << SYSCALL_CLASS_SHIFT)
+#define SYSCALL_NUMBER_MASK	(~SYSCALL_CLASS_MASK)
+
+#define SYSCALL_CLASS_NONE	0	/* Invalid */
+#define SYSCALL_CLASS_MACH	1	/* Mach */	
+#define SYSCALL_CLASS_UNIX	2	/* Unix/BSD */
+#define SYSCALL_CLASS_MDEP	3	/* Machine-dependent */
+#define SYSCALL_CLASS_DIAG	4	/* Diagnostics */
+
+/* Macros to simpllfy constructing syscall numbers. */
+#define SYSCALL_CONSTRUCT_MACH(syscall_number) \
+			((SYSCALL_CLASS_MACH << SYSCALL_CLASS_SHIFT) | \
+			 (SYSCALL_NUMBER_MASK & (syscall_number)))
+#define SYSCALL_CONSTRUCT_UNIX(syscall_number) \
+			((SYSCALL_CLASS_UNIX << SYSCALL_CLASS_SHIFT) | \
+			 (SYSCALL_NUMBER_MASK & (syscall_number)))
+#define SYSCALL_CONSTRUCT_MDEP(syscall_number) \
+			((SYSCALL_CLASS_MDEP << SYSCALL_CLASS_SHIFT) | \
+			 (SYSCALL_NUMBER_MASK & (syscall_number)))
+#define SYSCALL_CONSTRUCT_DIAG(syscall_number) \
+			((SYSCALL_CLASS_DIAG << SYSCALL_CLASS_SHIFT) | \
+			 (SYSCALL_NUMBER_MASK & (syscall_number)))
+```
+
+I find it cleaner to use define in separate files (here, `libasm.s`) like headers in C.
 
 ## strlen
 

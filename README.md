@@ -1,4 +1,4 @@
-# libasm - Linux and MaOS versions
+# libasm - Linux and MacOS versions
 
 `libasm` is an individual school project at [42 Paris](https://www.42.fr) campus.
 
@@ -21,8 +21,30 @@ I gathered all the resources that were helpful in the `doc` directory. You can c
 ### Installing
 
 Clone the repository, change it to your working directory and run:
+
 ```console
 $ make
+```
+
+To check the OS and the `src` directory:
+
+```console
+$ make show
+```
+### Tests
+
+```
+Usage: ./libasm_tester [-h | --bonus]
+
+optional arguments:
+  -h       print this usage message
+  --bonus  run both mandatory and bonus tests
+```
+
+To run the test suite:
+
+```console
+$ make debug
 ```
 
 ### License

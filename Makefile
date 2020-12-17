@@ -126,11 +126,12 @@ bonus: $(NAME) $(OBJ_BONUS)
 show:
 	@echo "OS: $(OS)"
 	@echo "SRC_DIR: $(SRC_DIR)"
-	@echo "$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o libasm_tester"
 
-debug: re bonus
+build_test: re bonus
 	@$(CC) $(CPPFLAGS) $(CFLAGS) $(TEST) $(LDFLAGS) $(LDLIBS) -o libasm_tester
-	@echo "OK\t\tCreated test executable\n"
+	@echo "OK\t\tCreated test executable"
+
+debug: build_test
 	@./libasm_tester --bonus
 
 # CLEAN #
@@ -145,4 +146,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus show debug clean fclean re
+.PHONY: all bonus show build_test debug clean fclean re

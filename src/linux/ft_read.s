@@ -11,8 +11,8 @@ ft_read:
         xor     rax, rax
         mov     rax, READ
         syscall
-        cmp     rax, rdx
-        je      done
+        cmp     rax, 0
+        jge     done
 
         neg     rax
         push    rax

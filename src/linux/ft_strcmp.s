@@ -6,17 +6,17 @@ ft_strcmp:
         mov     rbp, rsp
 
         xor     rax, rax
+        xor     rcx, rcx
         xor     rdx, rdx
 
-loop_cmp:
-        mov     al, BYTE [rdi]
-        mov     dl, BYTE [rsi]
+while_str:
+        mov     al, BYTE [rdi + rcx]
+        mov     dl, BYTE [rsi + rcx]
         test    al, al
         jz      done
-        inc     rdi
-        inc     rsi
+        inc     rcx
         cmp     al, dl
-        je      loop_cmp
+        je      while_str
 
 done:
         sub     rax, rdx

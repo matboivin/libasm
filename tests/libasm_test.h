@@ -6,7 +6,7 @@
 /*   By: mboivin <mboivin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 00:12:45 by mboivin           #+#    #+#             */
-/*   Updated: 2020/12/16 13:32:33 by mboivin          ###   ########.fr       */
+/*   Updated: 2021/01/05 18:31:30 by mboivin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define READ_MODE "r"
 # define BUFFER_SIZE 300
 # define TEST_FD_PATH "tests/libasm.h"
+# define TEST_FD_PATH2 "tests/checks/set_errno.c"
 # define TEST_STR_EMPTY ""
 # define TEST_STR_HELLO "Hello World!"
 # define TEST_STR_HELL "Hell"

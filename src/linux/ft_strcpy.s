@@ -6,19 +6,19 @@ ft_strcpy:
         mov     rbp, rsp
 
         xor     rax, rax
-        mov     rax, rdi
+        xor     rcx, rcx
 
-loop_cpy:
-        cmp     BYTE [rsi], 0
+while_str:
+        cmp     BYTE [rsi + rcx], 0
         je      done
-        mov     dl, [rsi]
-        mov     [rdi], dl
-        inc     rdi
-        inc     rsi
-        jmp     loop_cpy
+        mov     dl, [rsi + rcx]
+        mov     [rdi + rcx], dl
+        inc     rcx
+        jmp     while_str
 
 done:
-        mov     BYTE [rdi], 0
+        mov     BYTE [rdi + rcx], 0
+        mov     rax, rdi
 
         mov     rsp, rbp
         pop     rbp
